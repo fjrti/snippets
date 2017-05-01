@@ -1,0 +1,9 @@
+setup.py
+example/__init__.py
+example/pluginbase.py
+example/simple.py
+stevedoretest1.egg-info/PKG-INFO
+stevedoretest1.egg-info/SOURCES.txt
+stevedoretest1.egg-info/dependency_links.txt
+stevedoretest1.egg-info/entry_points.txt
+stevedoretest1.egg-info/top_level.txt

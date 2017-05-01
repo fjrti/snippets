@@ -1,0 +1,7 @@
+[console_scripts]
+bar = demo:test
+foo = demo:test
+
+[gui_scripts]
+baz = demo:test
+

@@ -1,0 +1,4 @@
+[mypackage.api.v1]
+databases = mypackage.api.v1.databases:main
+hello = mypackage.api.v1.hello:main
+

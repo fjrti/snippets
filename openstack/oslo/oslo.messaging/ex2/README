@@ -1,0 +1,6 @@
+
+rabbitmqctl list_consumers | grep test
+
+http://www.openstack.cn/?p=3514
+
+

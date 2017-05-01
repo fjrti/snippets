@@ -1,0 +1,16 @@
+AUTHORS
+ChangeLog
+setup.cfg
+setup.py
+mypackage/__init__.py
+mypackage.egg-info/PKG-INFO
+mypackage.egg-info/SOURCES.txt
+mypackage.egg-info/dependency_links.txt
+mypackage.egg-info/entry_points.txt
+mypackage.egg-info/not-zip-safe
+mypackage.egg-info/pbr.json
+mypackage.egg-info/top_level.txt
+mypackage/api/__init__.py
+mypackage/api/v1/__init__.py
+mypackage/api/v1/databases.py
+mypackage/api/v1/hello.py

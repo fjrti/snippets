@@ -1,0 +1,60 @@
+#!/bin/bash
+
+[ "$#" = "1" ] || { echo "Usage: $(basename "$0") filename_of_image"; exit 1; }
+
+CWD=$(pwd)
+BUSYBOX=busybox-1.26.2
+CP=/bin/cp 
+RM=/bin/rm
+
+TMPDIR=$(mktemp -d .tmp.XXXXXXXX)
+
+cd $TMPDIR
+
+mkdir -p dev/pts etc/init.d mnt proc root sys tmp
+chmod a+rwxt tmp
+
+${CP} -rf ${CWD}/${BUSYBOX}/_install/* ./
+${RM} ./linuxrc
+
+mkdir -p usr/share/udhcpc
+${CP} -rf ${CWD}/${BUSYBOX}/examples/udhcp/simple.script ./usr/share/udhcpc/default.script
+
+cat << EOF > etc/profile
+echo
+echo "Welcome to mini Linux"
+echo
+EOF
+
+cat << EOF > etc/fstab
+proc   /proc	proc	defaults  0  0
+sysfs  /sys	sysfs	defaults  0  0
+tmpfs  /tmp	tmpfs	defaults  0  0
+devpts /dev/pts	devpts	defaults  0  0
+EOF
+
+cat << EOF > etc/inittab
+::sysinit:/etc/init.d/rcS
+tty1::askfirst:/bin/sh
+::ctrlaltdel:/bin/umount -a -r
+EOF
+
+cat << EOF > etc/init.d/rcS
+#!bin/sh
+/bin/mount -a
+/sbin/mdev -s
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+echo 'root:DANF2exHVlG0o:0:0:root:/root:/bin/sh' > /etc/passwd
+chmod 755 /etc/passwd
+/bin/hostname "Mini"
+ifconfig lo 127.0.0.1 up
+udhcpc eth0
+telnetd
+EOF
+chmod 755 etc/init.d/rcS
+find ./ | cpio -o -H newc | gzip > ${CWD}/${1}
+
+cd $CWD
+${RM} -rf $TMPDIR
+
+exit 0

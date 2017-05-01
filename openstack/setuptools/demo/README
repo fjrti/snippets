@@ -1,0 +1,16 @@
+
+python setup.py bdist_egg
+默认在和setup.py同一目录下搜索各个含有__init__.py的包
+==> dist/demo-0.1-py2.7.egg
+upzip -l dist/demo-0.1-py2.7.egg
+
+python setup.py install
+
+>>> import demo
+>>> demo.test()
+hello world!
+>>>
+
+bug: make egg file exec
+
+

@@ -1,0 +1,4 @@
+[stevedoretest.formatter]
+plain = example.simple:Simple
+simple = example.simple:Simple
+
