@@ -1,7 +1,7 @@
 LINUX := linux-3.10.105
 BUSYBOX := busybox-1.26.2
 
-TOP_PATH = $(shell pwd)
+TOP_DIR = $(shell pwd)
 
 all: kernel.img rootfs.img
 
@@ -48,9 +48,9 @@ kernel.img: $(LINUX)/.config
 
 rootfs.img: $(BUSYBOX)/.config
 	make -C $(BUSYBOX) install -j4
-	$(TOP_PATH)/genramfs $@
+	$(TOP_DIR)/genramfs $@
 
 install $(LINUX)/.config $(BUSYBOX)/.config:
-	$(TOP_PATH)/build
+	$(TOP_DIR)/build
 
 .PHONY: all run debug clean distclean update install
