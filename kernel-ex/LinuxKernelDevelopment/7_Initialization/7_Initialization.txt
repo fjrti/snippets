@@ -1,0 +1,34 @@
+Initialization Overview
+3 main stages:
+	1. system power up: very low level hardware initializations before jumping
+	    into the bootstrap loader. This loader moves, possibly descompresses the kernel.
+	    This stage is very-platform dependent.
+
+	2. Init and launch all important kernel threads and services. Device drivers are started
+	    resources registered, etc. The root filesystem is mounted.
+
+	3. Starting processes: launching the init process, executing various system startup scripts,
+	    mounting remaining filesystems, cfg shared libraries, graphical interface etc.
+	    This stage is mostly about the distribution.
+
+System Boot:
+Handled by GRand Unified Bootloader (GRUB) on most x86 today.
+Das U-Boot is very common on embedded devices.
+
+on x86:
+ - BIOS starts first, initializes basic hardware and boot from preferred device
+ - the Master Boot Record (MBR) containing the partition table and the bootloader
+ - Bootloader locates and loads the OS kernel from disk
+ - Linux kernel is named usually 'vmlinuz-4.4.0' (versions, z = compressed kernel)
+   Kernel self-decompresses and resides in the /boot directory
+
+/boot directory content:
+	1. vmlinuz - compressed kernel
+	2. initramfs - complete initial root filesystem, loaded initially as a ramdisk.
+			also contains drivers and program required to load the real file system.
+	3. .config - contains all details about how the kernel was compiled (not needed for sys operation)
+	4. System.map - complete kernel symbol table, used only for debugging purposes
+
+Das U-Boot: denx.de/wiki/U-Boot/
+
+

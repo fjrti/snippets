@@ -1,0 +1,1 @@
+cmd_/home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_13/lab2_kthreads.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_13/lab2_kthreads.ko /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_13/lab2_kthreads.o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_13/lab2_kthreads.mod.o

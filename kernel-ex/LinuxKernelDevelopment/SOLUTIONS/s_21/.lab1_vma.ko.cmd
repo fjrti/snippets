@@ -1,0 +1,1 @@
+cmd_/home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_21/lab1_vma.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_21/lab1_vma.ko /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_21/lab1_vma.o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_21/lab1_vma.mod.o

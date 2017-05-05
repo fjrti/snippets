@@ -1,0 +1,117 @@
+Memory Addressing
+
+1. Virtual Memory Management (VM)
+	virtual/physical mem translations done by the Translation Lookaside Buffer (TLB)
+
+2. MMU-less systems
+	uClinux - was incorporated in Linux kernel. 
+	uclibc lib is required
+	Project active to port to new architectures & tools.
+
+3. Memory Addresses
+	* User Virtual Addresses
+	* Physical Addreses
+	* Bus Addresses - on x86 same as physical address, but differs on other archs
+	* Kernel Logical Address - make up the kernel space and usually differ from the physical address by a constant
+				   offset (aka PAGE_OFFSET). They use the HS's native pointer size, they may not be able
+				   to address over 4GB on 32 bit systems. They are always in 'low memory' on 32bits.
+					=> they are kernel virtual addresses.
+	* Kernel Virtual Addresses - differ from logical ones => they don't need to have a direct mapping to physical address
+				      if they're not logical, they reside in high memory and named just 'virtual'.
+
+On 32bit x86, the max memory available for the user-space is 3 GB, limited by TASK_SIZE, defined to be the same as PAGE_OFFSET
+
+4. Low & High Memory
+
+low memory = mem with logical addresses in kernel-space
+high memory = does not have logical addresses and must be mapped
+
+       process address space    +------> +------------+
+                                |        |  3200 M    |
+                                |        |            |
+    4GB +---------------+ <-----+        |  HIGH MEM  |
+        |     128 MB    |                |            |
+        +---------------+ <---------+    |            |
+        +---------------+ <------+  |    |            | 
+        |     896 MB    |        |  +--> +------------+         
+    3GB +---------------+ <--+   +-----> +------------+ 
+        |               |    |           |   896 MB   |
+        |     /////     |    +---------> +------------+
+        |               |     
+    0GB +---------------+     
+
+User-space view of virtual memory:
+
+    +----------------------+ <--- 0xBFFF FFFF (=3GB)
+    | environment variable |
+    |----------------------| <--- 0xBFFF FD0C 
+    | stacks (down grow)   |
+    |          |           |
+    |          v           |
+    |----------------------|
+    |                      |
+    |     // free memory   |
+    |                      |
+    |                      |
+    |----------------------| <--------------------
+    |  myprogram.o         |                    |
+    |----------------------|                    |
+    |  mylib.o             |                    |
+    |----------------------|              executable image      
+    |  myutil.o            |                    |     
+    |----------------------|                    |
+    |  library code (libc) |                    |
+    |----------------------| <--------------------                
+    |                      | 0x8000 0000 (=2GB) 
+    |                      |
+    |  other memory        |
+    |                      |
+    +----------------------+
+
+
+5. Memory Zones
+
+Kernel space is divided:
+
+	   0 -  16MB = DMA zone
+	16MB - 896MB = Normal zone
+	896  - END   = HIGH zone (on 32bits only)
+
+6. Special Device Nodes
+
+/dev/ mem, kmem, null, port, zero, full,  random, urandom, kmsg
+
+7. Non Uniform Memory Access (NUMA)
+... local/remote memory in the system.
+
+8. Paging
+
+	* Memory is divided in chunks of fixed size called pages. Access rights and various flags
+	   are specified at page level rather than address.
+	* page size depends on architecture (x86 = 4kb), 
+	  retrieved by PAGE_SIZE in kernel-space and getpagesize() function in user-space
+
+9. Page Tables
+
+	* data structure that connect virtual and physical addresses. These are kept in main memory.
+	* 32 address defined by 3 parts:
+		- 10 bits 'directory' = 1024 entries   = points to a page table
+		- 10 bits 'table'     = 1024 entries   = points to a page
+		- 12 bits 'offset'    = 4096 addresses = give the exact address within a page
+	* page flags: present/accessed/dirty/read/write/user/superuser/PCD//page_size
+
+Physical Address Extension (allows 32bit machine access to 64GB of mem)
+	-> 4 extra bits added to the physical address (leading to a true 3-page level page table)
+Page type definition is in /include/linux/mm_type.h
+
+	(!!!) for every physical page there is a page descriptor. The array of all page descriptors
+		is called mem_map. The page descriptor size depends on architecture and debugging options
+		but it's ~ 64 bytes. This leads to 16KB of page descriptors for every 1 MB of memory.
+			64MB per 4GB / 256MB per 16GB
+The page structures must lie in low memory. So using high memory 32bit computers becomes impractical.
+
+Get the page structure for a certain page -> use pfn_to_page()
+Getter and setters are provided for all fields.
+
+11. Kernel Samepage Merging - out of scope...
+

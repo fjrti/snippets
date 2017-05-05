@@ -1,0 +1,44 @@
+Chapter 4: Programming preview
+
+1. Kernel Output:
+	printk(); + Log Level macros
+	   OR
+	pr_emerg(), pr_alert(), ... , pr_info()
+
+   output can be viewed with 'dmesg'
+
+2. Task Structure
+	The Process Descriptor (aka Task Structure) is described by 'task_struct'
+	 defined in 'include/linux/sched.h'.
+	A pointer to the currently running task is obtained with the 'current' macro
+	e.g. setting the current task state:
+		1) current->state = TASK_RUNNING;
+		2) set_task_state (task_struct *p, TASK_INTERRUPTIBLE);
+		3) set_current_state (TASK_RUNNING);
+
+	Iterating over all processes is done with macro 'for_each_process()':
+		#include <linux/sched.h>
+		struct task_struct *p;
+		for_each_process(p)
+		{
+			pr_info ("Process ID is %d \n", p->tgid);
+		}
+
+3. Memory Allocation
+	Kernel stack for each task is very limited (8KB on x86 and 16KB on x64)
+	Dynamic allocation:
+
+	#include <linux/slab.h>
+	void *kmalloc (size_t, GFP_KERNEL);
+	void kfree (const void *addr);
+	
+	for non-contiguous memory vmalloc() can be used.
+
+4. Copying data between user and kernel spaces
+	Similar to memcpy():
+	copy_from_user() / copy_to_user()
+
+5 Linked Lists
+	Use Linux implementation:
+	#include <linux/list.h>
+	list add(), list_del(), list_splice(), etc.

@@ -1,0 +1,1 @@
+cmd_/home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_24/lab2_handler.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_24/lab2_handler.ko /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_24/lab2_handler.o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_24/lab2_handler.mod.o

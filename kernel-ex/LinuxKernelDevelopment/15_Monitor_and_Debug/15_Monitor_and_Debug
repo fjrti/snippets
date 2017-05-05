@@ -1,0 +1,17 @@
+
+Debuginfo packages:
+Kernel should be compiled with CONFIG_DEBUG_INFO
+Debug info is inserted into the executable.
+An uncompressed kernel is also needed (vmlinux vs vmlinuz) for debugging.
+(Optionally) debuginfo package can be downloaded fom distribution maker.
+
+Tracing and Profiling:
+
+	* strace
+
+	* latencytop - requires kernel recompilation
+
+SysRq Key
+	* option  msut be enabled in kernel cfg
+	* must be turned on during boot
+	-> basically a keystroke handler

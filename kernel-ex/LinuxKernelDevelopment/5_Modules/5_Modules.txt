@@ -1,0 +1,39 @@
+Chapter 5: Modules
+
+Compiling modules:
+	It is required to compiler inside the kernel source tree.
+	Kernel sources that have been compiled or at least had a
+	'make modules_prepare' stage, so it has the configuration and
+	dependency information available.
+	
+	"Jmping" inside the Kernel can be done via Makefile.
+
+Module utilities:
+$ lsmode = listing of all loaded modules. This info is also in /proc/modules
+
+$ insmod my_driver.ko = links a loadable module into the kernel
+$ rmmod my_driver = unloads module from running kernel
+
+$ depmod = creates a dependecy file (/lib/modules/$(uname -r)/modules.dep)
+            based on symbols in the modules mentioned on the command line
+            It is vital for modprobe.
+$ modprobe my_driver = can load or unload a stack of modules that depend on each other
+                        (alternative to insmod)
+
+Automatic Loading
+	#include <linux/kmod.h>
+	request_module () = request another module be loaded dynamically by modprobe.
+
+	Current process will sleep until any required modules are loaded.
+
+The module struct - defined in 'include/linux/module.h'
+
+Module licensing ...
+
+Exporting symbols:
+	int my_var;
+	int foo(void) {...};
+	EXPORT_SYMBOL(my_var);
+	EXPORT_SYMBOL(foo);
+
+To see all kernel symbols see /proc/kallsyms as root.

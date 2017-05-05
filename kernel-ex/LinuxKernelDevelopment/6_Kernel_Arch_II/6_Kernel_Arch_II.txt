@@ -1,0 +1,49 @@
+6.1 Processes, threads and tasks
+	process = executing program and associated resources 
+		   (environment, open files, signal handlers, etc.)
+
+	tasks (aka processes)
+
+	thread = flow of execution of a thread. A process with multiple execution flows
+		  is a multi-threaded process. The Linux Kernel doesn't have the concept of thread,
+		  each thread is viewed as a different process - the difference is more subtle.
+
+		 Historically, Linux supported threads at user level only with the Kernel viewing
+		 a multi-threaded application as a single process. Later the implementation changed
+		 and processes were attached to each thread so the kernel can better manage them.
+		 So the threads are seen as processes inside the kernel, these are known as 
+		 light weight processes (LWP);
+
+	Light Weight Proccesses = the differnce between a LWP and and a HWP is that the the LWPs
+		 share same address space and resources like open files, environment, etc.
+		 As some resources are shared, these procs are considered "light"
+
+	=> (!) Thread is a user-level term.
+	       LWP is a kernel-level term.
+
+	Implementation:
+	* threads are created using pthreads library (POSIX compliant)
+	* internally, clone() is used for normal and light processes
+
+	POSIX:
+	each thread returns: 
+		- same process ID    <=> "thread group" (in Linux), tgid
+		- distinct thread ID <=> "process ID" (in Linux), pid
+
+Contexts
+	process context = kernel is executing code on behalf of process
+			   e.g. servicing a system call
+
+	'interrupt' context = improperly named, kernel servicing interrupts
+				or kernel init, shutdown and scheduler
+				in this case, current task_struct is meaningless
+
+	* kernel processes are lighter than user processes (easier, faster)
+
+Preemption
+...
+
+Run-time alternatives
+	it's possible replace a section of code with an alternative early during system startup.
+	This enables to compile the kernel once and run it on multiple architecture derivatives.
+	

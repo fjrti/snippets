@@ -1,0 +1,1 @@
+cmd_/home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_10/lab1_taints.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_10/lab1_taints.ko /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_10/lab1_taints.o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_10/lab1_taints.mod.o

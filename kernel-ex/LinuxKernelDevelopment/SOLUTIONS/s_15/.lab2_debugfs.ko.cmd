@@ -1,0 +1,1 @@
+cmd_/home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_15/lab2_debugfs.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_15/lab2_debugfs.ko /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_15/lab2_debugfs.o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_15/lab2_debugfs.mod.o

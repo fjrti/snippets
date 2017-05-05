@@ -1,0 +1,47 @@
+Chapter 8:
+
+2. When modules have to be compiled for the host kernel, its sources can be found
+at "/lib/modules/$(uname -r)/build"
+alternatively "/usr/src/linux"
+
+Kernel source browser is useful (when grep and find are not enough):
+lxr / opengrok / cscope / GNU Global
+
+3. Kernel Configuration:
+A .config file is created in the main source directory.
+The options contained can also be stored inside the kernel.
+If the CONFIG_IKCONFIG_PROC option is turned on, info can be read from
+	/proc/config.gz or/boot/.../config...
+
+4. Building & Makefiles
+	described in Documentation/kbuild/
+
+	Essential components:
+	- top-level Makefile
+	- .config file
+	- top-level architecture Makefile
+	- subdirectory makefiles
+	- in each dir with a makefiles, there is also a Kconfig
+		interfacing with the Kernel cfg utilities
+   => 3 main ingredients: source, Makefile, Kconfig
+
+5. initrd and initramfs
+	Before loading the root filesystem, some kernel modules or firmware have to be loaded.
+	The GRUB configuration file needs a line pointing to the initramfs file.
+	The initramfs is made in Debian with mkinitramfs
+
+Configuration utilities:
+- make config - pure text based
+- make menuconfig - ncurses GUI
+- make xconfig - x-based, built on qt
+- make gconfig - x-based, buil on gtk
+	* excellent tips in "Linux Kernel in a Nutshell" by Greg Kroah-Hartman
+
+Compiling & installing:
+- make the copressed kernel (bzImage) and copy it in /boot
+- also copy System.map for logging/debugging
+- save kernel configuration for future referencing
+- make the modules and install them in/lib/modules/kernel-version
+- construct new initramfs and copy it in /boot
+- update bootloader configuration
+

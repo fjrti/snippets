@@ -1,0 +1,1 @@
+cmd_/home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_18/lab1_allpages.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_18/lab1_allpages.ko /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_18/lab1_allpages.o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_18/lab1_allpages.mod.o

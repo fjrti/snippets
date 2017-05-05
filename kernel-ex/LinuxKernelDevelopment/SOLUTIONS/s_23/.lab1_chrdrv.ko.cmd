@@ -1,0 +1,1 @@
+cmd_/home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_23/lab1_chrdrv.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_23/lab1_chrdrv.ko /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_23/lab1_chrdrv.o /home/mihaidragan/Desktop/LFD420/materials/SOLUTIONS/s_23/lab1_chrdrv.mod.o
