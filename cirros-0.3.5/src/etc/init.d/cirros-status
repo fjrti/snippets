@@ -1,0 +1,9 @@
+#!/bin/sh
+case "$1" in
+	start)
+		cirros-status;;
+	stop) :;;
+	*) echo "unknown argument ${1}" 1>&2;;
+esac
+
+# vi: ts=4 noexpandtab

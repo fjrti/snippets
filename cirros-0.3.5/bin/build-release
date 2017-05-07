@@ -1,0 +1,151 @@
+#!/bin/bash
+
+[ $# -eq 1 ] || { echo "must give version"; exit 1; }
+
+VER=$1
+pre=cirros-$VER
+BR_VER="2012.05"
+ARCHES="${ARCHES:-i386 x86_64 arm powerpc}"
+KVER="3.2.0-80.116";
+
+dl() {
+   local url="$1" target="$2" tfile="" t=""
+   [ -f "$target" ] && return
+   t=$(dirname "$target")
+   tfile=$(mktemp "$t/.${0##*/}.XXXXXX") || return
+   wget "$url" -O "$tfile" &&
+      mv "$tfile" "$target" ||
+      { t=$?; rm -f "$tfile"; return $t; }
+}
+error() { echo "$@" 1>&2; }
+fail() { [ $# -eq 0 ] || error "$@"; exit 1; }
+
+set -e
+set -o pipefail
+
+out="$PWD/../build-$VER"
+export TMPDIR="$out/tmp"
+mkdir -p "$out" "$TMPDIR"
+
+# really just here to check that VER is a tag
+# or source code checkout would fail
+if true; then
+    git tag -l | grep -q "^$VER$" || fail "$VER: not a tag in $PWD."
+fi
+
+echo "$(date): begin" >> "$out/date.txt";
+echo "$(date): start download" >> "$out/date.txt";
+
+rm -f download
+mkdir -p ../download
+ln -snf ../download download
+brtgz="buildroot-${BR_VER}.tar.gz"
+dl "http://buildroot.uclibc.org/downloads/$brtgz" "download/$brtgz"
+
+rm -Rf "buildroot-${BR_VER}"
+rm -f buildroot
+tar -xvf download/buildroot-${BR_VER}.tar.gz
+ln -snf buildroot-${BR_VER} buildroot
+
+# we do not do this here, so that we're not dependent on the
+# cvs working (which wont work through http_proxy) and also
+# to have revision controlled information in that file.
+#./bin/mkcabundle > src/etc/ssl/certs/ca-certificates.crt
+
+( cd buildroot && QUILT_PATCHES="$PWD/../patches-buildroot" quilt push -a )
+
+echo "$VER" > "src/etc/cirros/version"
+
+echo "$(date): end download" >> "$out/date.txt";
+echo "$(date): start br-source" >> "$out/date.txt";
+make ARCH=i386 br-source
+echo "$(date): end br-source" >> "$out/date.txt";
+
+echo "$(date): start kernel download" >> "$out/date.txt";
+burl="https://launchpad.net/ubuntu/+archive/primary/+files/linux-image"
+for arch in ${ARCHES}; do
+     xarch=$arch; flav="virtual"
+     [ "$arch" = "x86_64" ] && xarch="amd64";
+     [ "$arch" = "arm" ] && xarch="armel" && flav="omap"
+     [ "$arch" = "powerpc" ] && flav="powerpc64-smp"
+     url="$burl-${KVER%.*}-${flav}_${KVER}_${xarch}.deb"
+     tfile="download/${url##*/}"
+     dl "$url" "$tfile"
+     ln -sf "${tfile##*/}" download/kernel-${arch}.deb
+done
+echo "$(date): end kernel download" >> "$out/date.txt";
+
+for arch in ${ARCHES}; do
+  echo "$(date): start $arch" >> "$out/date.txt";
+  time make ARCH=$arch "OUT_D=$out/build/$arch" 2>&1 |
+     tee "$out/build-$arch.log";
+  echo "$(date): finish $arch" >> "$out/date.txt";
+done;
+
+for arch in ${ARCHES}; do
+  mkdir -p "$out/stage/$arch"
+done
+
+for arch in ${ARCHES}; do
+  [ "$arch" = "powerpc" ] && size="50M" || size=""
+  sudo ./bin/bundle -v ${size:+--size=$size} --arch="$arch" \
+     "$out/build/$arch/rootfs.tar" \
+     ./download/kernel-$arch.deb "$out/stage/$arch";
+done
+
+sudo chown -R $USER:$USER "$out/stage"
+
+mkdir -p "$out/release"
+
+#srctgz="$out/release/cirros-$VER-source.tar.gz"
+#bzr export -r "tag:$VER" --format=tgz --root="cirros-$VER" "$srctgz"
+#echo "wrote source tgz: $srctgz"
+
+( srcd="$PWD" && tmpd=$(mktemp -d) && cd "$tmpd" &&
+     git clone "$srcd" "cirros-$VER" &&
+     cd "cirros-$VER" && git checkout "$VER" &&
+     cd .. &&
+     rm -Rf "cirros-$VER/.git/" &&
+     echo "$VER" > "cirros-$VER/src/etc/cirros/version" &&
+     tar cvzf - cirros-$VER ) > "$out/release/cirros-$VER-source.tar.gz"
+
+rm -f "$out/stage"/*/"$pre"*
+for arch in ${ARCHES}; do
+  p=$pre-$arch
+  ( cd "$out/stage/$arch" &&
+    ln kernel $p-vmlinuz && ln kernel $p-kernel &&
+    ln initramfs $p-initrd && ln initramfs $p-initramfs &&
+    ln part.img $p-rootfs.img &&
+    ln blank.img $p-blank.img &&
+    ln disk.img $p-disk.img &&
+    ln filesys.tar.gz $p-lxc.tar.gz &&
+    true
+  ); done
+
+for arch in ${ARCHES}; do
+  p=$pre-$arch
+  ( cd "$out/stage/$arch" &&
+    cp $p-kernel $p-initramfs $p-lxc.tar.gz "$out/release/" &&
+    gzip -9 -c $p-rootfs.img > $out/release/$p-rootfs.img.gz ) &&
+  ( cd "$out/stage/$arch" &&
+    tar cvzf - $p-blank.img $p-vmlinuz $p-initrd ) > \
+    "$out/release/$p-uec.tar.gz"
+  [ "$arch" = "arm" ] ||
+     cp "$out/stage/$arch/$p-disk.img" "$out/release/$p-disk.img"
+done
+
+mkdir -p "$out/release/buildroot_rootfs"
+for arch in ${ARCHES}; do
+  t="$out/release/buildroot_rootfs/buildroot-$VER-$arch.tar"
+  cp "$out/build/$arch/rootfs.tar" "$t" && gzip --force -9 "$t"
+done
+
+chmod u+rwX,go+rX -R "$out/release/"* 
+
+sumfiles=$(cd "$out/release" && for f in *; do
+   [ -f "$f" -a "$f" != MD5SUMS ] && echo "$f"; done)
+( cd "$out/release" && md5sum $sumfiles > MD5SUMS )
+
+echo "output in $out/release"
+echo "entire process took $SECONDS seconds"
+echo "$(date): finished [$SECONDS]" >> "$out/date.txt";

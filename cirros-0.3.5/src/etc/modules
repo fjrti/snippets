@@ -1,0 +1,15 @@
+# modules here are loaded one per line
+ibmvscsic          # arch=powerpc
+ibmveth            # arch=powerpc
+virtio_blk
+virtio_net
+acpiphp            # arch=x86
+e1000
+ne2k-pci           # arch=x86
+8139cp             # arch=x86
+pcnet32            # arch=x86
+ip_tables
+isofs
+vfat
+nls_cp437
+nls_iso8859-1

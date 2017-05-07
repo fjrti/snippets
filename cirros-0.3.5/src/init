@@ -1,0 +1,102 @@
+#!/bin/sh
+# vi: ts=4 noexpandtab
+#
+# This is the initramfs init script
+ROOTFS_LABEL="cirros-rootfs"
+
+. /lib/cirros/shlib
+
+mkdir -p /proc /newroot /dev /tmp
+
+mount -t devtmpfs /dev /dev
+mount -t proc /proc /proc
+
+echo "6 4 1 7" >/proc/sys/kernel/printk
+
+parse_cmdline
+
+for x in $KC_CONSOLES; do
+	[ "$x" = "$KC_CONSOLE" ] ||
+		echo "further output written to $KC_CONSOLE" > "$x";
+done
+if [ -n "$KC_PREF_CONSOLE" ]; then
+	exec >"$KC_PREF_CONSOLE" 2>&1 <"$KC_PREF_CONSOLE"
+fi
+
+read uptime cputime < /proc/uptime
+iinfo "initramfs: up at $uptime"
+
+idebug "loading modules"
+/etc/init.d/load-modules start
+
+ROOT=""
+MOUNTED=""
+
+if [ "$KC_RAMDISK_ROOT" != "1" ]; then
+	while read maj min blk name other; do
+		[ -n "${maj}" -a "${maj}" != "major" ] || continue
+		umount=0
+		mount -o ro "/dev/${name}" "/newroot" >/dev/null 2>&1 &&
+			MOUNTED="$MOUNTED ${name}" && umount=1 &&
+			[ -x /newroot/sbin/init ] && ROOT="/dev/$name" && break
+		[ ${umount} -eq 0 ] || umount /newroot
+	done < /proc/partitions
+fi
+
+if [ "$KC_DEBUG" = "1" ]; then
+	echo "dropping into initramfs debug shell"
+	/bin/sh
+fi
+
+if [ -z "$ROOT" -a "$KC_RAMDISK_ROOT" != "1" ] &&
+   blank=$(blkid -l -o device -t LABEL=$ROOTFS_LABEL) &&
+   [ -e "$blank" ]; then
+	iinfo "copying initramfs to $blank"
+	items=""
+	set +f
+	for x in /*; do
+		case "$x" in
+			/dev|/proc|/newroot) : ;;
+			*) items="$items $x";;
+		esac
+	done
+	set -f
+	mount "$blank" /newroot
+	mkdir -p /newroot/dev /newroot/proc
+	cp -a $items /newroot/
+	cp -a /dev/console /newroot/dev
+	mount -o remount,ro /newroot
+	ROOT="$blank"
+fi
+
+if [ -n "$ROOT" ]; then
+	if [ "${ROOT%[0-9]}" != "${ROOT}" -a -e "${ROOT%[0-9]}" ]; then
+		# only bother with growroot if root is a partition (sda1, not sda)
+		# and there exists a /dev/sda (xen will give xvda1 without xvda)
+		idebug "Growing root partition $ROOT"
+		umount /newroot
+		growroot "$ROOT"
+		mount -o ro "$ROOT" "/newroot" ||
+			failure "uh-oh, $ROOT was there, but not after growroot" 1>&2
+	fi
+	cd /newroot
+	mount -o move /dev ./dev
+	umount /proc
+	iinfo "initramfs loading root from $ROOT"
+	exec switch_root /newroot /sbin/init "$@"
+else
+	while read maj min blk name other; do
+		[ -n "${maj}" -a "${maj}" != "major" ] || continue
+		umount=0
+		mount -o ro "/dev/${name}" "/newroot" >/dev/null 2>&1 &&
+			umount=1 &&
+			[ -x /newroot/sbin/init ] && ROOT="/dev/$name" && break
+		[ ${umount} -eq 0 ] || umount /newroot
+	done < /proc/partitions
+	umount /proc
+	[ "$KC_RAMDISK_ROOT" = "0" ] &&
+		iinfo "initramfs did not find root, running as ramdisk" ||
+		iinfo "running in ramdisk mode as requested"
+	exec /sbin/init "$@"
+fi
+failure "badness occurred in ramdisk"
