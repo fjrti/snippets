@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter7/init_timer/init_timer.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/init_timer/init_timer.ko /home/qiutie/programcode/chapter7/init_timer/init_timer.o /home/qiutie/programcode/chapter7/init_timer/init_timer.mod.o

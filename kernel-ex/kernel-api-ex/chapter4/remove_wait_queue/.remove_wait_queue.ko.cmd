@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/remove_wait_queue/remove_wait_queue.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/remove_wait_queue/remove_wait_queue.ko /home/qiutie/programcode/chapter4/remove_wait_queue/remove_wait_queue.o /home/qiutie/programcode/chapter4/remove_wait_queue/remove_wait_queue.mod.o

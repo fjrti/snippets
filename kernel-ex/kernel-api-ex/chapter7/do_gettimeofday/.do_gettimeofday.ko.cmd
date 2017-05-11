@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter7/do_gettimeofday/do_gettimeofday.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/do_gettimeofday/do_gettimeofday.ko /home/qiutie/programcode/chapter7/do_gettimeofday/do_gettimeofday.o /home/qiutie/programcode/chapter7/do_gettimeofday/do_gettimeofday.mod.o

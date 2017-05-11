@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter10/device_rename/device_rename.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter10/device_rename/device_rename.ko /home/qiutie/programcode/chapter10/device_rename/device_rename.o /home/qiutie/programcode/chapter10/device_rename/device_rename.mod.o

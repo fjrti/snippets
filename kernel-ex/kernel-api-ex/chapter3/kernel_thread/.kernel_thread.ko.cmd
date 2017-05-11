@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter3/kernel_thread/kernel_thread.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter3/kernel_thread/kernel_thread.ko /home/qiutie/programcode/chapter3/kernel_thread/kernel_thread.o /home/qiutie/programcode/chapter3/kernel_thread/kernel_thread.mod.o

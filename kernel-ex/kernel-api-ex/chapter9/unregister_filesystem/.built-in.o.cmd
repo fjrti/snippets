@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter9/unregister_filesystem/built-in.o :=  rm -f /home/qiutie/programcode/chapter9/unregister_filesystem/built-in.o; ar rcs /home/qiutie/programcode/chapter9/unregister_filesystem/built-in.o

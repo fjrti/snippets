@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter5/tasklet_disable/tasklet_enable_disable.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/tasklet_disable/tasklet_enable_disable.ko /home/qiutie/programcode/chapter5/tasklet_disable/tasklet_enable_disable.o /home/qiutie/programcode/chapter5/tasklet_disable/tasklet_enable_disable.mod.o

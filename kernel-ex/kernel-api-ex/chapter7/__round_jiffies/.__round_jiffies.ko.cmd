@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter7/__round_jiffies/__round_jiffies.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/__round_jiffies/__round_jiffies.ko /home/qiutie/programcode/chapter7/__round_jiffies/__round_jiffies.o /home/qiutie/programcode/chapter7/__round_jiffies/__round_jiffies.mod.o

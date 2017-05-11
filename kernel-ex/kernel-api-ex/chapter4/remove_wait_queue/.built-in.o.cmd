@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/remove_wait_queue/built-in.o :=  rm -f /home/qiutie/programcode/chapter4/remove_wait_queue/built-in.o; ar rcs /home/qiutie/programcode/chapter4/remove_wait_queue/built-in.o

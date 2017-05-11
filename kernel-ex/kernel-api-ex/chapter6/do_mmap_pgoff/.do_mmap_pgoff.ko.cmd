@@ -1,0 +1,1 @@
+cmd_/tmp/chapter6/do_mmap_pgoff/do_mmap_pgoff.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/do_mmap_pgoff/do_mmap_pgoff.ko /tmp/chapter6/do_mmap_pgoff/do_mmap_pgoff.o /tmp/chapter6/do_mmap_pgoff/do_mmap_pgoff.mod.o

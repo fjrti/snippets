@@ -1,0 +1,1 @@
+cmd_/tmp/chapter6/mempool_create/mempool_create.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/mempool_create/mempool_create.ko /tmp/chapter6/mempool_create/mempool_create.o /tmp/chapter6/mempool_create/mempool_create.mod.o

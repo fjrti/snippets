@@ -1,0 +1,1 @@
+cmd_/home/kernel_API/get_fs_type/get_fs_type.ko := ld -r -m elf_i386  --build-id -o /home/kernel_API/get_fs_type/get_fs_type.ko /home/kernel_API/get_fs_type/get_fs_type.o /home/kernel_API/get_fs_type/get_fs_type.mod.o

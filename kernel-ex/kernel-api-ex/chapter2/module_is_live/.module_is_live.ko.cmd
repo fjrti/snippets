@@ -1,0 +1,1 @@
+cmd_/tmp/chapter2/module_is_live/module_is_live.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter2/module_is_live/module_is_live.ko /tmp/chapter2/module_is_live/module_is_live.o /tmp/chapter2/module_is_live/module_is_live.mod.o

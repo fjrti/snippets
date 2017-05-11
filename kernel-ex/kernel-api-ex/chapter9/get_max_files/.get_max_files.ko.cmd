@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter9/get_max_files/get_max_files.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/get_max_files/get_max_files.ko /home/qiutie/programcode/chapter9/get_max_files/get_max_files.o /home/qiutie/programcode/chapter9/get_max_files/get_max_files.mod.o

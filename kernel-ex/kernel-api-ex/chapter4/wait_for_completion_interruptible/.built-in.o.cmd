@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/wait_for_completion_interruptible/built-in.o :=  rm -f /home/qiutie/programcode/chapter4/wait_for_completion_interruptible/built-in.o; ar rcs /home/qiutie/programcode/chapter4/wait_for_completion_interruptible/built-in.o

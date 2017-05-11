@@ -1,0 +1,1 @@
+cmd_/tmp/chapter2/try_module_get/try_module_get.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter2/try_module_get/try_module_get.ko /tmp/chapter2/try_module_get/try_module_get.o /tmp/chapter2/try_module_get/try_module_get.mod.o

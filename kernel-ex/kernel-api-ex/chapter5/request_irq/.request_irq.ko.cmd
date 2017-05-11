@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter5/request_irq/request_irq.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/request_irq/request_irq.ko /home/qiutie/programcode/chapter5/request_irq/request_irq.o /home/qiutie/programcode/chapter5/request_irq/request_irq.mod.o

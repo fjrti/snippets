@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/interruptible_sleep_on/interruptible_sleep_on.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/interruptible_sleep_on/interruptible_sleep_on.ko /home/qiutie/programcode/chapter4/interruptible_sleep_on/interruptible_sleep_on.o /home/qiutie/programcode/chapter4/interruptible_sleep_on/interruptible_sleep_on.mod.o

@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter3/pid_task/pid_task.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter3/pid_task/pid_task.ko /home/qiutie/programcode/chapter3/pid_task/pid_task.o /home/qiutie/programcode/chapter3/pid_task/pid_task.mod.o

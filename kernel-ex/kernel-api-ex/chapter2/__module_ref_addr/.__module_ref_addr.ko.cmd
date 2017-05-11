@@ -1,0 +1,1 @@
+cmd_/tmp/chapter2/__module_ref_addr/__module_ref_addr.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter2/__module_ref_addr/__module_ref_addr.ko /tmp/chapter2/__module_ref_addr/__module_ref_addr.o /tmp/chapter2/__module_ref_addr/__module_ref_addr.mod.o

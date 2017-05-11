@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/set_user_nice/set_user_nice.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/set_user_nice/set_user_nice.ko /home/qiutie/programcode/chapter4/set_user_nice/set_user_nice.o /home/qiutie/programcode/chapter4/set_user_nice/set_user_nice.mod.o

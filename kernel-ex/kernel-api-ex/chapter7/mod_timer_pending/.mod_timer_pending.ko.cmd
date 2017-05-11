@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter7/mod_timer_pending/mod_timer_pending.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/mod_timer_pending/mod_timer_pending.ko /home/qiutie/programcode/chapter7/mod_timer_pending/mod_timer_pending.o /home/qiutie/programcode/chapter7/mod_timer_pending/mod_timer_pending.mod.o

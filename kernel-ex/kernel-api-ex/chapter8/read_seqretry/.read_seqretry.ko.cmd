@@ -1,0 +1,1 @@
+cmd_/tmp/chapter8/read_seqretry/read_seqretry.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/read_seqretry/read_seqretry.ko /tmp/chapter8/read_seqretry/read_seqretry.o /tmp/chapter8/read_seqretry/read_seqretry.mod.o

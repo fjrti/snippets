@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/yield/yield.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/yield/yield.ko /home/qiutie/programcode/chapter4/yield/yield.o /home/qiutie/programcode/chapter4/yield/yield.mod.o

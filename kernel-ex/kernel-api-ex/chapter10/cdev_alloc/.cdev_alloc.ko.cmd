@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter10/cdev_alloc/cdev_alloc.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter10/cdev_alloc/cdev_alloc.ko /home/qiutie/programcode/chapter10/cdev_alloc/cdev_alloc.o /home/qiutie/programcode/chapter10/cdev_alloc/cdev_alloc.mod.o

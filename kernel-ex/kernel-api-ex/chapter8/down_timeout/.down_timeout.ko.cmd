@@ -1,0 +1,1 @@
+cmd_/tmp/chapter8/down_timeout/down_timeout.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/down_timeout/down_timeout.ko /tmp/chapter8/down_timeout/down_timeout.o /tmp/chapter8/down_timeout/down_timeout.mod.o

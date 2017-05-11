@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter7/timespec_compare/timespec_compare.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/timespec_compare/timespec_compare.ko /home/qiutie/programcode/chapter7/timespec_compare/timespec_compare.o /home/qiutie/programcode/chapter7/timespec_compare/timespec_compare.mod.o

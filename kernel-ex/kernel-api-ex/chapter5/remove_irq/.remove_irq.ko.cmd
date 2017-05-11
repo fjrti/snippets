@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter5/remove_irq/remove_irq.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/remove_irq/remove_irq.ko /home/qiutie/programcode/chapter5/remove_irq/remove_irq.o /home/qiutie/programcode/chapter5/remove_irq/remove_irq.mod.o

@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/init_waitqueue_entry/built-in.o :=  rm -f /home/qiutie/programcode/chapter4/init_waitqueue_entry/built-in.o; ar rcs /home/qiutie/programcode/chapter4/init_waitqueue_entry/built-in.o

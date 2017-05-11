@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter9/mnt_want_write/mnt_want_write.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/mnt_want_write/mnt_want_write.ko /home/qiutie/programcode/chapter9/mnt_want_write/mnt_want_write.o /home/qiutie/programcode/chapter9/mnt_want_write/mnt_want_write.mod.o

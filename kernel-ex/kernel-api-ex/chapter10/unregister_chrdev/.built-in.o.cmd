@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter10/unregister_chrdev/built-in.o :=  rm -f /home/qiutie/programcode/chapter10/unregister_chrdev/built-in.o; ar rcs /home/qiutie/programcode/chapter10/unregister_chrdev/built-in.o

@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter10/device_unregister/device_register_unregister.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter10/device_unregister/device_register_unregister.ko /home/qiutie/programcode/chapter10/device_unregister/device_register_unregister.o /home/qiutie/programcode/chapter10/device_unregister/device_register_unregister.mod.o

@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter5/tasklet_disable_nosync/tasklet_disable_nosync.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/tasklet_disable_nosync/tasklet_disable_nosync.ko /home/qiutie/programcode/chapter5/tasklet_disable_nosync/tasklet_disable_nosync.o /home/qiutie/programcode/chapter5/tasklet_disable_nosync/tasklet_disable_nosync.mod.o

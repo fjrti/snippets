@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/prepare_to_wait/prepare_to_wait.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/prepare_to_wait/prepare_to_wait.ko /home/qiutie/programcode/chapter4/prepare_to_wait/prepare_to_wait.o /home/qiutie/programcode/chapter4/prepare_to_wait/prepare_to_wait.mod.o

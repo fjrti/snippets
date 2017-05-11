@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter5/disable_irq/enable_disable_irq.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/disable_irq/enable_disable_irq.ko /home/qiutie/programcode/chapter5/disable_irq/enable_disable_irq.o /home/qiutie/programcode/chapter5/disable_irq/enable_disable_irq.mod.o

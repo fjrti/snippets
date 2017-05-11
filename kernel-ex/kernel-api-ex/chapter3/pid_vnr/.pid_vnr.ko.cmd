@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter3/pid_vnr/pid_vnr.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter3/pid_vnr/pid_vnr.ko /home/qiutie/programcode/chapter3/pid_vnr/pid_vnr.o /home/qiutie/programcode/chapter3/pid_vnr/pid_vnr.mod.o

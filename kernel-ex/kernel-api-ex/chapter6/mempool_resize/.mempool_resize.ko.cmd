@@ -1,0 +1,1 @@
+cmd_/tmp/chapter6/mempool_resize/mempool_resize.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/mempool_resize/mempool_resize.ko /tmp/chapter6/mempool_resize/mempool_resize.o /tmp/chapter6/mempool_resize/mempool_resize.mod.o

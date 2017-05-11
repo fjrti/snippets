@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter5/setup_irq/setup_irq.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/setup_irq/setup_irq.ko /home/qiutie/programcode/chapter5/setup_irq/setup_irq.o /home/qiutie/programcode/chapter5/setup_irq/setup_irq.mod.o

@@ -1,0 +1,1 @@
+cmd_/tmp/chapter8/read_seqbegin/read_seqbegin.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/read_seqbegin/read_seqbegin.ko /tmp/chapter8/read_seqbegin/read_seqbegin.o /tmp/chapter8/read_seqbegin/read_seqbegin.mod.o

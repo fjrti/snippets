@@ -1,0 +1,1 @@
+cmd_/tmp/chapter8/atomic_add_unless/atomic_add_unless.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/atomic_add_unless/atomic_add_unless.ko /tmp/chapter8/atomic_add_unless/atomic_add_unless.o /tmp/chapter8/atomic_add_unless/atomic_add_unless.mod.o

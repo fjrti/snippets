@@ -1,0 +1,1 @@
+cmd_/tmp/chapter2/find_symbol/find_symbol.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter2/find_symbol/find_symbol.ko /tmp/chapter2/find_symbol/find_symbol.o /tmp/chapter2/find_symbol/find_symbol.mod.o

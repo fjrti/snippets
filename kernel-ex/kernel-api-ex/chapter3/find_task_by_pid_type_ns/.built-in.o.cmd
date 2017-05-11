@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter3/find_task_by_pid_type_ns/built-in.o :=  rm -f /home/qiutie/programcode/chapter3/find_task_by_pid_type_ns/built-in.o; ar rcs /home/qiutie/programcode/chapter3/find_task_by_pid_type_ns/built-in.o

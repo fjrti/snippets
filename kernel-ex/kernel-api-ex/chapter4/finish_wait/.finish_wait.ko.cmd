@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/finish_wait/finish_wait.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/finish_wait/finish_wait.ko /home/qiutie/programcode/chapter4/finish_wait/finish_wait.o /home/qiutie/programcode/chapter4/finish_wait/finish_wait.mod.o

@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter5/kstat_irq_cpu/kstat_irqs_cpu.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/kstat_irq_cpu/kstat_irqs_cpu.ko /home/qiutie/programcode/chapter5/kstat_irq_cpu/kstat_irqs_cpu.o /home/qiutie/programcode/chapter5/kstat_irq_cpu/kstat_irqs_cpu.mod.o

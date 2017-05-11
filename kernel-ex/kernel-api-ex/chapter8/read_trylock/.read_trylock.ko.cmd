@@ -1,0 +1,1 @@
+cmd_/tmp/chapter8/read_trylock/read_trylock.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/read_trylock/read_trylock.ko /tmp/chapter8/read_trylock/read_trylock.o /tmp/chapter8/read_trylock/read_trylock.mod.o

@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter9/inode_get_bytes/inode_get_bytes.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/inode_get_bytes/inode_get_bytes.ko /home/qiutie/programcode/chapter9/inode_get_bytes/inode_get_bytes.o /home/qiutie/programcode/chapter9/inode_get_bytes/inode_get_bytes.mod.o

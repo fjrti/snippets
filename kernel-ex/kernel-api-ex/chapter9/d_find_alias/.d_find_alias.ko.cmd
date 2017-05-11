@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter9/d_find_alias/d_find_alias.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/d_find_alias/d_find_alias.ko /home/qiutie/programcode/chapter9/d_find_alias/d_find_alias.o /home/qiutie/programcode/chapter9/d_find_alias/d_find_alias.mod.o

@@ -1,0 +1,1 @@
+cmd_/tmp/chapter8/down_killable/down_killable.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/down_killable/down_killable.ko /tmp/chapter8/down_killable/down_killable.o /tmp/chapter8/down_killable/down_killable.mod.o

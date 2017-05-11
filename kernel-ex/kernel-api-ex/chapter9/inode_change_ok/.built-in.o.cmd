@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter9/inode_change_ok/built-in.o :=  rm -f /home/qiutie/programcode/chapter9/inode_change_ok/built-in.o; ar rcs /home/qiutie/programcode/chapter9/inode_change_ok/built-in.o

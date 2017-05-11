@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/sleep_on_timeout/sleep_on_timeout.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/sleep_on_timeout/sleep_on_timeout.ko /home/qiutie/programcode/chapter4/sleep_on_timeout/sleep_on_timeout.o /home/qiutie/programcode/chapter4/sleep_on_timeout/sleep_on_timeout.mod.o

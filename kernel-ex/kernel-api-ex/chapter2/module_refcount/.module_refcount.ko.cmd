@@ -1,0 +1,1 @@
+cmd_/tmp/chapter2/module_refcount/module_refcount.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter2/module_refcount/module_refcount.ko /tmp/chapter2/module_refcount/module_refcount.o /tmp/chapter2/module_refcount/module_refcount.mod.o

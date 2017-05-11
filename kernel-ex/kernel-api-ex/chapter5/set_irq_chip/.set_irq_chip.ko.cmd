@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter5/set_irq_chip/set_irq_chip.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/set_irq_chip/set_irq_chip.ko /home/qiutie/programcode/chapter5/set_irq_chip/set_irq_chip.o /home/qiutie/programcode/chapter5/set_irq_chip/set_irq_chip.mod.o

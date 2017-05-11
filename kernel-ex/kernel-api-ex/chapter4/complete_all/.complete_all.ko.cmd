@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/complete_all/complete_all.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/complete_all/complete_all.ko /home/qiutie/programcode/chapter4/complete_all/complete_all.o /home/qiutie/programcode/chapter4/complete_all/complete_all.mod.o

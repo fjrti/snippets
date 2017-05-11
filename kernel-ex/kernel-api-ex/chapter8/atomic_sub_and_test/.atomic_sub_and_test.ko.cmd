@@ -1,0 +1,1 @@
+cmd_/tmp/chapter8/atomic_sub_and_test/atomic_sub_and_test.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/atomic_sub_and_test/atomic_sub_and_test.ko /tmp/chapter8/atomic_sub_and_test/atomic_sub_and_test.o /tmp/chapter8/atomic_sub_and_test/atomic_sub_and_test.mod.o

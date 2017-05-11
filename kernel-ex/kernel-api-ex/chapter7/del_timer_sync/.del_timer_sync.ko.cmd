@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter7/del_timer_sync/del_timer_sync.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/del_timer_sync/del_timer_sync.ko /home/qiutie/programcode/chapter7/del_timer_sync/del_timer_sync.o /home/qiutie/programcode/chapter7/del_timer_sync/del_timer_sync.mod.o

@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter5/tasklet_hi_enable/tasklet_hi_enable.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/tasklet_hi_enable/tasklet_hi_enable.ko /home/qiutie/programcode/chapter5/tasklet_hi_enable/tasklet_hi_enable.o /home/qiutie/programcode/chapter5/tasklet_hi_enable/tasklet_hi_enable.mod.o

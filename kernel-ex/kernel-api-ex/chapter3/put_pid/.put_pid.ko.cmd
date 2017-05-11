@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter3/put_pid/put_pid.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter3/put_pid/put_pid.ko /home/qiutie/programcode/chapter3/put_pid/put_pid.o /home/qiutie/programcode/chapter3/put_pid/put_pid.mod.o

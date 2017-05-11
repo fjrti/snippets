@@ -1,0 +1,1 @@
+cmd_/tmp/chapter6/get_unmapped_area/get_unmapped_area.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/get_unmapped_area/get_unmapped_area.ko /tmp/chapter6/get_unmapped_area/get_unmapped_area.o /tmp/chapter6/get_unmapped_area/get_unmapped_area.mod.o

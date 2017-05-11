@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter9/unshare_fs_struct/unshare_fs_struct.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/unshare_fs_struct/unshare_fs_struct.ko /home/qiutie/programcode/chapter9/unshare_fs_struct/unshare_fs_struct.o /home/qiutie/programcode/chapter9/unshare_fs_struct/unshare_fs_struct.mod.o

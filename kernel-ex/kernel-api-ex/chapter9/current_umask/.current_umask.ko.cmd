@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter9/current_umask/current_umask.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/current_umask/current_umask.ko /home/qiutie/programcode/chapter9/current_umask/current_umask.o /home/qiutie/programcode/chapter9/current_umask/current_umask.mod.o

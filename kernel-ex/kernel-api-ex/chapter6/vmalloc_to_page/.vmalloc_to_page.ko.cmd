@@ -1,0 +1,1 @@
+cmd_/tmp/chapter6/vmalloc_to_page/vmalloc_to_page.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/vmalloc_to_page/vmalloc_to_page.ko /tmp/chapter6/vmalloc_to_page/vmalloc_to_page.o /tmp/chapter6/vmalloc_to_page/vmalloc_to_page.mod.o

@@ -1,0 +1,1 @@
+cmd_/home/kernel_API/is_bad_inode/is_bad_inode.ko := ld -r -m elf_i386  --build-id -o /home/kernel_API/is_bad_inode/is_bad_inode.ko /home/kernel_API/is_bad_inode/is_bad_inode.o /home/kernel_API/is_bad_inode/is_bad_inode.mod.o

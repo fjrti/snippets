@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter10/class_destroy/class_create_destroy.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter10/class_destroy/class_create_destroy.ko /home/qiutie/programcode/chapter10/class_destroy/class_create_destroy.o /home/qiutie/programcode/chapter10/class_destroy/class_create_destroy.mod.o

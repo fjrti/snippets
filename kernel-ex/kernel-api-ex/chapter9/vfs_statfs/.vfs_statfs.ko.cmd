@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter9/vfs_statfs/vfs_statfs.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/vfs_statfs/vfs_statfs.ko /home/qiutie/programcode/chapter9/vfs_statfs/vfs_statfs.o /home/qiutie/programcode/chapter9/vfs_statfs/vfs_statfs.mod.o

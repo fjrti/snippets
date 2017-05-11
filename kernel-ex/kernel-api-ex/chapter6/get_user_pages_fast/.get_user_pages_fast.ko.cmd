@@ -1,0 +1,1 @@
+cmd_/tmp/chapter6/get_user_pages_fast/get_user_pages_fast.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/get_user_pages_fast/get_user_pages_fast.ko /tmp/chapter6/get_user_pages_fast/get_user_pages_fast.o /tmp/chapter6/get_user_pages_fast/get_user_pages_fast.mod.o

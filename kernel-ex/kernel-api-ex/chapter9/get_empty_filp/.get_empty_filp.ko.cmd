@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter9/get_empty_filp/get_empty_filp.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/get_empty_filp/get_empty_filp.ko /home/qiutie/programcode/chapter9/get_empty_filp/get_empty_filp.o /home/qiutie/programcode/chapter9/get_empty_filp/get_empty_filp.mod.o

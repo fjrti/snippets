@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/autoremove_wake_function/built-in.o :=  rm -f /home/qiutie/programcode/chapter4/autoremove_wake_function/built-in.o; ar rcs /home/qiutie/programcode/chapter4/autoremove_wake_function/built-in.o

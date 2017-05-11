@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter7/current_kernel_time/current_kernel_time.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/current_kernel_time/current_kernel_time.ko /home/qiutie/programcode/chapter7/current_kernel_time/current_kernel_time.o /home/qiutie/programcode/chapter7/current_kernel_time/current_kernel_time.mod.o

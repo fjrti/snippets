@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter3/find_vpid/find_vpid.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter3/find_vpid/find_vpid.ko /home/qiutie/programcode/chapter3/find_vpid/find_vpid.o /home/qiutie/programcode/chapter3/find_vpid/find_vpid.mod.o

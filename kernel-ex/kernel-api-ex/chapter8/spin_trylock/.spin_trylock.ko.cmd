@@ -1,0 +1,1 @@
+cmd_/tmp/chapter8/spin_trylock/spin_trylock.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/spin_trylock/spin_trylock.ko /tmp/chapter8/spin_trylock/spin_trylock.o /tmp/chapter8/spin_trylock/spin_trylock.mod.o

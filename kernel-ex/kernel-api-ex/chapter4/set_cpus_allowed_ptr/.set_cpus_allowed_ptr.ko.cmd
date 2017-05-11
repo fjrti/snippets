@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter4/set_cpus_allowed_ptr/set_cpus_allowed_ptr.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/set_cpus_allowed_ptr/set_cpus_allowed_ptr.ko /home/qiutie/programcode/chapter4/set_cpus_allowed_ptr/set_cpus_allowed_ptr.o /home/qiutie/programcode/chapter4/set_cpus_allowed_ptr/set_cpus_allowed_ptr.mod.o

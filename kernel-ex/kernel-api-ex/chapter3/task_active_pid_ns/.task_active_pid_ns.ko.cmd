@@ -1,0 +1,1 @@
+cmd_/home/qiutie/programcode/chapter3/task_active_pid_ns/task_active_pid_ns.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter3/task_active_pid_ns/task_active_pid_ns.ko /home/qiutie/programcode/chapter3/task_active_pid_ns/task_active_pid_ns.o /home/qiutie/programcode/chapter3/task_active_pid_ns/task_active_pid_ns.mod.o
