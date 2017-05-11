@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/inode_get_bytes/built-in.o :=  rm -f /home/qiutie/programcode/chapter9/inode_get_bytes/built-in.o; ar rcs /home/qiutie/programcode/chapter9/inode_get_bytes/built-in.o

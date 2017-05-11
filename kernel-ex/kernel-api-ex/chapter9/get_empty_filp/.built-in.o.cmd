@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/get_empty_filp/built-in.o :=  rm -f /home/qiutie/programcode/chapter9/get_empty_filp/built-in.o; ar rcs /home/qiutie/programcode/chapter9/get_empty_filp/built-in.o

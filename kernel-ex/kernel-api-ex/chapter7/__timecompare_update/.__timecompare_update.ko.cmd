@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/__timecompare_update/__timecompare_update.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/__timecompare_update/__timecompare_update.ko /home/qiutie/programcode/chapter7/__timecompare_update/__timecompare_update.o /home/qiutie/programcode/chapter7/__timecompare_update/__timecompare_update.mod.o

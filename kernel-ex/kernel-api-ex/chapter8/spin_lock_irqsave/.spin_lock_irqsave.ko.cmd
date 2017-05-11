@@ -1,1 +1,0 @@
-cmd_/tmp/chapter8/spin_lock_irqsave/spin_lock_irqsave.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/spin_lock_irqsave/spin_lock_irqsave.ko /tmp/chapter8/spin_lock_irqsave/spin_lock_irqsave.o /tmp/chapter8/spin_lock_irqsave/spin_lock_irqsave.mod.o

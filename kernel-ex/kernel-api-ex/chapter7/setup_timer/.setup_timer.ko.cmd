@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/setup_timer/setup_timer.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/setup_timer/setup_timer.ko /home/qiutie/programcode/chapter7/setup_timer/setup_timer.o /home/qiutie/programcode/chapter7/setup_timer/setup_timer.mod.o

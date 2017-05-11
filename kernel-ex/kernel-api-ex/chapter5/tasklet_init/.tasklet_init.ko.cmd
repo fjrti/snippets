@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter5/tasklet_init/tasklet_init.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/tasklet_init/tasklet_init.ko /home/qiutie/programcode/chapter5/tasklet_init/tasklet_init.o /home/qiutie/programcode/chapter5/tasklet_init/tasklet_init.mod.o

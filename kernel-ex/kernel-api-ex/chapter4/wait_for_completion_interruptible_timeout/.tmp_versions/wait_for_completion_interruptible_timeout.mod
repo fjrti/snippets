@@ -1,2 +1,0 @@
-/home/qiutie/programcode/chapter4/wait_for_completion_interruptible_timeout/wait_for_completion_interruptible_timeout.ko
-/home/qiutie/programcode/chapter4/wait_for_completion_interruptible_timeout/wait_for_completion_interruptible_timeout.o

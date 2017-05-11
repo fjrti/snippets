@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/vfs_fstat/vfs_fstat.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/vfs_fstat/vfs_fstat.ko /home/qiutie/programcode/chapter9/vfs_fstat/vfs_fstat.o /home/qiutie/programcode/chapter9/vfs_fstat/vfs_fstat.mod.o

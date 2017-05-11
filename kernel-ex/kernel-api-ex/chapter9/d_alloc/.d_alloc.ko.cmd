@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/d_alloc/d_alloc.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/d_alloc/d_alloc.ko /home/qiutie/programcode/chapter9/d_alloc/d_alloc.o /home/qiutie/programcode/chapter9/d_alloc/d_alloc.mod.o

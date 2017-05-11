@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter10/put_device/get_put_device.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter10/put_device/get_put_device.ko /home/qiutie/programcode/chapter10/put_device/get_put_device.o /home/qiutie/programcode/chapter10/put_device/get_put_device.mod.o

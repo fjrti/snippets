@@ -1,1 +1,0 @@
-cmd_/tmp/chapter8/spin_unlock_wait/spin_unlock_wait.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/spin_unlock_wait/spin_unlock_wait.ko /tmp/chapter8/spin_unlock_wait/spin_unlock_wait.o /tmp/chapter8/spin_unlock_wait/spin_unlock_wait.mod.o

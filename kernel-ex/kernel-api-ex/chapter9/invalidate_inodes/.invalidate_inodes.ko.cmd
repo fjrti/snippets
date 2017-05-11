@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/invalidate_inodes/invalidate_inodes.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/invalidate_inodes/invalidate_inodes.ko /home/qiutie/programcode/chapter9/invalidate_inodes/invalidate_inodes.o /home/qiutie/programcode/chapter9/invalidate_inodes/invalidate_inodes.mod.o

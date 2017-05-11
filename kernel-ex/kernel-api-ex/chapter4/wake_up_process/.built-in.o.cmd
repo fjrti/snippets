@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter4/wake_up_process/built-in.o :=  rm -f /home/qiutie/programcode/chapter4/wake_up_process/built-in.o; ar rcs /home/qiutie/programcode/chapter4/wake_up_process/built-in.o

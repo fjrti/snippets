@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/generic_fillattr/generic_fillattr.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/generic_fillattr/generic_fillattr.ko /home/qiutie/programcode/chapter9/generic_fillattr/generic_fillattr.o /home/qiutie/programcode/chapter9/generic_fillattr/generic_fillattr.mod.o

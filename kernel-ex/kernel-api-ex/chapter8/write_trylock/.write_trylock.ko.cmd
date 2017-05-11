@@ -1,1 +1,0 @@
-cmd_/tmp/chapter8/write_trylock/write_trylock.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/write_trylock/write_trylock.ko /tmp/chapter8/write_trylock/write_trylock.o /tmp/chapter8/write_trylock/write_trylock.mod.o

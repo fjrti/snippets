@@ -1,1 +1,0 @@
-cmd_/tmp/chapter8/spin_lock_bh/spin_lock_bh.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/spin_lock_bh/spin_lock_bh.ko /tmp/chapter8/spin_lock_bh/spin_lock_bh.o /tmp/chapter8/spin_lock_bh/spin_lock_bh.mod.o

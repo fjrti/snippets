@@ -1,1 +1,0 @@
-cmd_/tmp/chapter8/down_interruptible/down_interruptible.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/down_interruptible/down_interruptible.ko /tmp/chapter8/down_interruptible/down_interruptible.o /tmp/chapter8/down_interruptible/down_interruptible.mod.o

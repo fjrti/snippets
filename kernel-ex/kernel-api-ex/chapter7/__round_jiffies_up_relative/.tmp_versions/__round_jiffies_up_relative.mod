@@ -1,2 +1,0 @@
-/home/qiutie/programcode/chapter7/__round_jiffies_up_relative/__round_jiffies_up_relative.ko
-/home/qiutie/programcode/chapter7/__round_jiffies_up_relative/__round_jiffies_up_relative.o

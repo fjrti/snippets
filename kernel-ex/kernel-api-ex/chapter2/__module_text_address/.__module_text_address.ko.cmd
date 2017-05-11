@@ -1,1 +1,0 @@
-cmd_/tmp/chapter2/__module_text_address/__module_text_address.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter2/__module_text_address/__module_text_address.ko /tmp/chapter2/__module_text_address/__module_text_address.o /tmp/chapter2/__module_text_address/__module_text_address.mod.o

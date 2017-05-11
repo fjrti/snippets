@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter4/init_waitqueue_entry/init_waitqueue_entry.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/init_waitqueue_entry/init_waitqueue_entry.ko /home/qiutie/programcode/chapter4/init_waitqueue_entry/init_waitqueue_entry.o /home/qiutie/programcode/chapter4/init_waitqueue_entry/init_waitqueue_entry.mod.o

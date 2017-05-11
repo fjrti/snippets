@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/inode_set_bytes/inode_set_bytes.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/inode_set_bytes/inode_set_bytes.ko /home/qiutie/programcode/chapter9/inode_set_bytes/inode_set_bytes.o /home/qiutie/programcode/chapter9/inode_set_bytes/inode_set_bytes.mod.o

@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter3/is_container_init/is_container_init.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter3/is_container_init/is_container_init.ko /home/qiutie/programcode/chapter3/is_container_init/is_container_init.o /home/qiutie/programcode/chapter3/is_container_init/is_container_init.mod.o

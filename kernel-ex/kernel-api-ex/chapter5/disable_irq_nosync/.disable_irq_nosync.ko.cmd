@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter5/disable_irq_nosync/disable_irq_nosync.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/disable_irq_nosync/disable_irq_nosync.ko /home/qiutie/programcode/chapter5/disable_irq_nosync/disable_irq_nosync.o /home/qiutie/programcode/chapter5/disable_irq_nosync/disable_irq_nosync.mod.o

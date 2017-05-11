@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/timespec_to_ns/timespec_to_ns.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/timespec_to_ns/timespec_to_ns.ko /home/qiutie/programcode/chapter7/timespec_to_ns/timespec_to_ns.o /home/qiutie/programcode/chapter7/timespec_to_ns/timespec_to_ns.mod.o

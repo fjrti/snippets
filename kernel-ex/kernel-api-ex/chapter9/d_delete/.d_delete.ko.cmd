@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/d_delete/d_delete.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/d_delete/d_delete.ko /home/qiutie/programcode/chapter9/d_delete/d_delete.o /home/qiutie/programcode/chapter9/d_delete/d_delete.mod.o

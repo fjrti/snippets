@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter3/pid_nr/pid_nr.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter3/pid_nr/pid_nr.ko /home/qiutie/programcode/chapter3/pid_nr/pid_nr.o /home/qiutie/programcode/chapter3/pid_nr/pid_nr.mod.o

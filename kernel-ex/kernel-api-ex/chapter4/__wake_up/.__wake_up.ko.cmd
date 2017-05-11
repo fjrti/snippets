@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter4/__wake_up/__wake_up.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/__wake_up/__wake_up.ko /home/qiutie/programcode/chapter4/__wake_up/__wake_up.o /home/qiutie/programcode/chapter4/__wake_up/__wake_up.mod.o

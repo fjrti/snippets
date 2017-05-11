@@ -1,1 +1,0 @@
-cmd_/tmp/chapter8/atomic_add_return/atomic_add_return.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/atomic_add_return/atomic_add_return.ko /tmp/chapter8/atomic_add_return/atomic_add_return.o /tmp/chapter8/atomic_add_return/atomic_add_return.mod.o

@@ -1,2 +1,0 @@
-/home/qiutie/programcode/chapter7/set_normalized_timespec/set_normalized_timespec.ko
-/home/qiutie/programcode/chapter7/set_normalized_timespec/set_normalized_timespec.o

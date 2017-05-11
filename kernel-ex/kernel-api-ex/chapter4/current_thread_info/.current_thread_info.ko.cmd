@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter4/current_thread_info/current_thread_info.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/current_thread_info/current_thread_info.ko /home/qiutie/programcode/chapter4/current_thread_info/current_thread_info.o /home/qiutie/programcode/chapter4/current_thread_info/current_thread_info.mod.o

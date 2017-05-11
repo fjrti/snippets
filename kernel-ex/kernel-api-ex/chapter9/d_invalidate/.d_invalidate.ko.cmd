@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/d_invalidate/d_invalidate.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/d_invalidate/d_invalidate.ko /home/qiutie/programcode/chapter9/d_invalidate/d_invalidate.o /home/qiutie/programcode/chapter9/d_invalidate/d_invalidate.mod.o

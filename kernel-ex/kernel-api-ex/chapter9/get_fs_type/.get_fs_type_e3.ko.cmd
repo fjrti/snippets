@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/get_fs_type/get_fs_type_e3.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/get_fs_type/get_fs_type_e3.ko /home/qiutie/programcode/chapter9/get_fs_type/get_fs_type_e3.o /home/qiutie/programcode/chapter9/get_fs_type/get_fs_type_e3.mod.o

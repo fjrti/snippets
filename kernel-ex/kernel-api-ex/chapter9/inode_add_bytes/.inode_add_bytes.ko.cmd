@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/inode_add_bytes/inode_add_bytes.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/inode_add_bytes/inode_add_bytes.ko /home/qiutie/programcode/chapter9/inode_add_bytes/inode_add_bytes.o /home/qiutie/programcode/chapter9/inode_add_bytes/inode_add_bytes.mod.o

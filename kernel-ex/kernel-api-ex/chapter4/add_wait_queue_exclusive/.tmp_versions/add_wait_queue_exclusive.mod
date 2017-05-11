@@ -1,2 +1,0 @@
-/home/qiutie/programcode/chapter4/add_wait_queue_exclusive/add_wait_queue_exclusive.ko
-/home/qiutie/programcode/chapter4/add_wait_queue_exclusive/add_wait_queue_exclusive.o

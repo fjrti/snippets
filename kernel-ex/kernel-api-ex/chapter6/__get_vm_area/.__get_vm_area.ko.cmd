@@ -1,1 +1,0 @@
-cmd_/tmp/chapter6/__get_vm_area/__get_vm_area.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/__get_vm_area/__get_vm_area.ko /tmp/chapter6/__get_vm_area/__get_vm_area.o /tmp/chapter6/__get_vm_area/__get_vm_area.mod.o

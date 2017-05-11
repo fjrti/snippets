@@ -1,2 +1,0 @@
-/tmp/chapter7/try_to_del_timer_sync/try_to_del_timer_sync.ko
-/tmp/chapter7/try_to_del_timer_sync/try_to_del_timer_sync.o

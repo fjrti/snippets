@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter3/is_container_init/built-in.o :=  rm -f /home/qiutie/programcode/chapter3/is_container_init/built-in.o; ar rcs /home/qiutie/programcode/chapter3/is_container_init/built-in.o

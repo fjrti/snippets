@@ -1,2 +1,0 @@
-/home/qiutie/programcode/chapter10/device_unregister/device_register_unregister.ko
-/home/qiutie/programcode/chapter10/device_unregister/device_register_unregister.o

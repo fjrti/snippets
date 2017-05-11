@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/init_timer_on_stack/init_timer_on_stack.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/init_timer_on_stack/init_timer_on_stack.ko /home/qiutie/programcode/chapter7/init_timer_on_stack/init_timer_on_stack.o /home/qiutie/programcode/chapter7/init_timer_on_stack/init_timer_on_stack.mod.o

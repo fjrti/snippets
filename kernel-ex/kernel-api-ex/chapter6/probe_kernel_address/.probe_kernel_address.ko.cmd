@@ -1,1 +1,0 @@
-cmd_/tmp/chapter6/probe_kernel_address/probe_kernel_address.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/probe_kernel_address/probe_kernel_address.ko /tmp/chapter6/probe_kernel_address/probe_kernel_address.o /tmp/chapter6/probe_kernel_address/probe_kernel_address.mod.o

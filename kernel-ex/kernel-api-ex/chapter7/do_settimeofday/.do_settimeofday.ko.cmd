@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/do_settimeofday/do_settimeofday.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/do_settimeofday/do_settimeofday.ko /home/qiutie/programcode/chapter7/do_settimeofday/do_settimeofday.o /home/qiutie/programcode/chapter7/do_settimeofday/do_settimeofday.mod.o

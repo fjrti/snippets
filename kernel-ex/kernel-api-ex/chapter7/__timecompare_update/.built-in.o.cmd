@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/__timecompare_update/built-in.o :=  rm -f /home/qiutie/programcode/chapter7/__timecompare_update/built-in.o; ar rcs /home/qiutie/programcode/chapter7/__timecompare_update/built-in.o

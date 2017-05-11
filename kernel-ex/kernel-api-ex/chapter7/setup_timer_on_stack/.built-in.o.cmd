@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/setup_timer_on_stack/built-in.o :=  rm -f /home/qiutie/programcode/chapter7/setup_timer_on_stack/built-in.o; ar rcs /home/qiutie/programcode/chapter7/setup_timer_on_stack/built-in.o

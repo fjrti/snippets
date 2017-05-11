@@ -1,1 +1,0 @@
-cmd_/tmp/chapter6/vmalloc_user/vmalloc_user.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/vmalloc_user/vmalloc_user.ko /tmp/chapter6/vmalloc_user/vmalloc_user.o /tmp/chapter6/vmalloc_user/vmalloc_user.mod.o

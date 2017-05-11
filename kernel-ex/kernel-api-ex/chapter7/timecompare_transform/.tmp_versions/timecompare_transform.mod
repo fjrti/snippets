@@ -1,2 +1,0 @@
-/home/qiutie/programcode/chapter7/timecompare_transform/timecompare_transform.ko
-/home/qiutie/programcode/chapter7/timecompare_transform/timecompare_transform.o

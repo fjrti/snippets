@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/ns_to_timeval/ns_to_timeval.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/ns_to_timeval/ns_to_timeval.ko /home/qiutie/programcode/chapter7/ns_to_timeval/ns_to_timeval.o /home/qiutie/programcode/chapter7/ns_to_timeval/ns_to_timeval.mod.o

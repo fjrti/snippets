@@ -1,2 +1,0 @@
-/home/qiutie/programcode/chapter4/preempt_notifer_unregister/preempt_notifer_unregister.ko
-/home/qiutie/programcode/chapter4/preempt_notifer_unregister/preempt_notifer_unregister.o

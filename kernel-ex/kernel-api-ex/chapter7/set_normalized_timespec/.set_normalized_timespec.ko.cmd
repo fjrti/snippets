@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/set_normalized_timespec/set_normalized_timespec.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/set_normalized_timespec/set_normalized_timespec.ko /home/qiutie/programcode/chapter7/set_normalized_timespec/set_normalized_timespec.o /home/qiutie/programcode/chapter7/set_normalized_timespec/set_normalized_timespec.mod.o

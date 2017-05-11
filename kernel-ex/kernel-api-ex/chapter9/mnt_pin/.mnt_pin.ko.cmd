@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/mnt_pin/mnt_pin.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/mnt_pin/mnt_pin.ko /home/qiutie/programcode/chapter9/mnt_pin/mnt_pin.o /home/qiutie/programcode/chapter9/mnt_pin/mnt_pin.mod.o

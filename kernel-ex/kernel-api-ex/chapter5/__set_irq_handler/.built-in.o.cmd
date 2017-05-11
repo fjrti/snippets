@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter5/__set_irq_handler/built-in.o :=  rm -f /home/qiutie/programcode/chapter5/__set_irq_handler/built-in.o; ar rcs /home/qiutie/programcode/chapter5/__set_irq_handler/built-in.o

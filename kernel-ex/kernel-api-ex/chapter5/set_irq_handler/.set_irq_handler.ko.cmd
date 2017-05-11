@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter5/set_irq_handler/set_irq_handler.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/set_irq_handler/set_irq_handler.ko /home/qiutie/programcode/chapter5/set_irq_handler/set_irq_handler.o /home/qiutie/programcode/chapter5/set_irq_handler/set_irq_handler.mod.o

@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter10/cdev_del/cdev_add_del.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter10/cdev_del/cdev_add_del.ko /home/qiutie/programcode/chapter10/cdev_del/cdev_add_del.o /home/qiutie/programcode/chapter10/cdev_del/cdev_add_del.mod.o

@@ -1,1 +1,0 @@
-cmd_/tmp/chapter8/atomic_cmpxchg/atomic_cmpxchg.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/atomic_cmpxchg/atomic_cmpxchg.ko /tmp/chapter8/atomic_cmpxchg/atomic_cmpxchg.o /tmp/chapter8/atomic_cmpxchg/atomic_cmpxchg.mod.o

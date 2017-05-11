@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/iget_locked/iget_locked.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/iget_locked/iget_locked.ko /home/qiutie/programcode/chapter9/iget_locked/iget_locked.o /home/qiutie/programcode/chapter9/iget_locked/iget_locked.mod.o

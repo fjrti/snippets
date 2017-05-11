@@ -1,1 +1,0 @@
-cmd_/tmp/chapter7/try_to_del_timer_sync/try_to_del_timer_sync.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter7/try_to_del_timer_sync/try_to_del_timer_sync.ko /tmp/chapter7/try_to_del_timer_sync/try_to_del_timer_sync.o /tmp/chapter7/try_to_del_timer_sync/try_to_del_timer_sync.mod.o

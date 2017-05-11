@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter4/task_nice/task_nice.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/task_nice/task_nice.ko /home/qiutie/programcode/chapter4/task_nice/task_nice.o /home/qiutie/programcode/chapter4/task_nice/task_nice.mod.o

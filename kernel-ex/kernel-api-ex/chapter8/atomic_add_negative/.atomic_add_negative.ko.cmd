@@ -1,1 +1,0 @@
-cmd_/tmp/chapter8/atomic_add_negative/atomic_add_negative.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter8/atomic_add_negative/atomic_add_negative.ko /tmp/chapter8/atomic_add_negative/atomic_add_negative.o /tmp/chapter8/atomic_add_negative/atomic_add_negative.mod.o

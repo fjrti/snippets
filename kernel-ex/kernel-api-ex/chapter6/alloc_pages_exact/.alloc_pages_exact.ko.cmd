@@ -1,1 +1,0 @@
-cmd_/tmp/chapter6/alloc_pages_exact/alloc_pages_exact.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/alloc_pages_exact/alloc_pages_exact.ko /tmp/chapter6/alloc_pages_exact/alloc_pages_exact.o /tmp/chapter6/alloc_pages_exact/alloc_pages_exact.mod.o

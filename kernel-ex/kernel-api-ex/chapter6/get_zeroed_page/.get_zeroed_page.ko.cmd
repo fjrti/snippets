@@ -1,1 +1,0 @@
-cmd_/tmp/chapter6/get_zeroed_page/get_zeroed_page.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/get_zeroed_page/get_zeroed_page.ko /tmp/chapter6/get_zeroed_page/get_zeroed_page.o /tmp/chapter6/get_zeroed_page/get_zeroed_page.mod.o

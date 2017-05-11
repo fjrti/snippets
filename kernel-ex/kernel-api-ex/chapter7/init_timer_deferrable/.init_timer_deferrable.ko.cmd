@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/init_timer_deferrable/init_timer_deferrable.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/init_timer_deferrable/init_timer_deferrable.ko /home/qiutie/programcode/chapter7/init_timer_deferrable/init_timer_deferrable.o /home/qiutie/programcode/chapter7/init_timer_deferrable/init_timer_deferrable.mod.o

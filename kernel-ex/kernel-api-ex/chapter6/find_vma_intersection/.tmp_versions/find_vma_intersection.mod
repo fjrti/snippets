@@ -1,2 +1,0 @@
-/tmp/chapter6/find_vma_intersection/find_vma_intersection.ko
-/tmp/chapter6/find_vma_intersection/find_vma_intersection.o

@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/timecompare_transform/timecompare_transform.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/timecompare_transform/timecompare_transform.ko /home/qiutie/programcode/chapter7/timecompare_transform/timecompare_transform.o /home/qiutie/programcode/chapter7/timecompare_transform/timecompare_transform.mod.o

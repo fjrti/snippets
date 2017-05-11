@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter5/tasklet_unlock/tasklet_trylock_unlock.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter5/tasklet_unlock/tasklet_trylock_unlock.ko /home/qiutie/programcode/chapter5/tasklet_unlock/tasklet_trylock_unlock.o /home/qiutie/programcode/chapter5/tasklet_unlock/tasklet_trylock_unlock.mod.o

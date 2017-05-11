@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter3/get_task_mm/get_task_mm.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter3/get_task_mm/get_task_mm.ko /home/qiutie/programcode/chapter3/get_task_mm/get_task_mm.o /home/qiutie/programcode/chapter3/get_task_mm/get_task_mm.mod.o

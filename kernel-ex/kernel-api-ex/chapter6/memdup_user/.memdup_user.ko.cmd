@@ -1,1 +1,0 @@
-cmd_/tmp/chapter6/memdup_user/memdup_user.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/memdup_user/memdup_user.ko /tmp/chapter6/memdup_user/memdup_user.o /tmp/chapter6/memdup_user/memdup_user.mod.o

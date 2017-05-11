@@ -1,2 +1,0 @@
-/home/qiutie/programcode/chapter4/autoremove_wake_function/autoremove_wake_function.ko
-/home/qiutie/programcode/chapter4/autoremove_wake_function/autoremove_wake_function.o

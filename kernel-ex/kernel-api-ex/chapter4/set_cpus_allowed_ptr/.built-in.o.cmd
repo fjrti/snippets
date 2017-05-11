@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter4/set_cpus_allowed_ptr/built-in.o :=  rm -f /home/qiutie/programcode/chapter4/set_cpus_allowed_ptr/built-in.o; ar rcs /home/qiutie/programcode/chapter4/set_cpus_allowed_ptr/built-in.o

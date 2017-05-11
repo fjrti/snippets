@@ -1,1 +1,0 @@
-cmd_/tmp/chapter6/kmem_cache_zalloc/kmem_cache_zalloc.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/kmem_cache_zalloc/kmem_cache_zalloc.ko /tmp/chapter6/kmem_cache_zalloc/kmem_cache_zalloc.o /tmp/chapter6/kmem_cache_zalloc/kmem_cache_zalloc.mod.o

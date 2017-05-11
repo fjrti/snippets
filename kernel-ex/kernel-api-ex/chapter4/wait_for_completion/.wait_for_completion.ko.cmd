@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter4/wait_for_completion/wait_for_completion.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/wait_for_completion/wait_for_completion.ko /home/qiutie/programcode/chapter4/wait_for_completion/wait_for_completion.o /home/qiutie/programcode/chapter4/wait_for_completion/wait_for_completion.mod.o

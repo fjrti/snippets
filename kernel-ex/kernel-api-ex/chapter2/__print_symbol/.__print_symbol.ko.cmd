@@ -1,1 +1,0 @@
-cmd_/tmp/chapter2/__print_symbol/__print_symbol.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter2/__print_symbol/__print_symbol.ko /tmp/chapter2/__print_symbol/__print_symbol.o /tmp/chapter2/__print_symbol/__print_symbol.mod.o

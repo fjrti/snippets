@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter7/mktime/mktime.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter7/mktime/mktime.ko /home/qiutie/programcode/chapter7/mktime/mktime.o /home/qiutie/programcode/chapter7/mktime/mktime.mod.o

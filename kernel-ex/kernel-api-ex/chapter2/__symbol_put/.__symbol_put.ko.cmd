@@ -1,1 +1,0 @@
-cmd_/tmp/chapter2/__symbol_put/__symbol_put.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter2/__symbol_put/__symbol_put.ko /tmp/chapter2/__symbol_put/__symbol_put.o /tmp/chapter2/__symbol_put/__symbol_put.mod.o

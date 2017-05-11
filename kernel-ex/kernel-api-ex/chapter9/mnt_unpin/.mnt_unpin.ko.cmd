@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/mnt_unpin/mnt_unpin.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/mnt_unpin/mnt_unpin.ko /home/qiutie/programcode/chapter9/mnt_unpin/mnt_unpin.o /home/qiutie/programcode/chapter9/mnt_unpin/mnt_unpin.mod.o

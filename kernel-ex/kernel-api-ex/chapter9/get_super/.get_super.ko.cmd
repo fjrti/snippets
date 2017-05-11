@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/get_super/get_super.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/get_super/get_super.ko /home/qiutie/programcode/chapter9/get_super/get_super.o /home/qiutie/programcode/chapter9/get_super/get_super.mod.o

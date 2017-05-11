@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter10/unregister_chrdev/register_unregister_chrdev.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter10/unregister_chrdev/register_unregister_chrdev.ko /home/qiutie/programcode/chapter10/unregister_chrdev/register_unregister_chrdev.o /home/qiutie/programcode/chapter10/unregister_chrdev/register_unregister_chrdev.mod.o

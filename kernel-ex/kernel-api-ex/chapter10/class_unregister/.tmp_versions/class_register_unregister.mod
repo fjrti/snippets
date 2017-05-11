@@ -1,2 +1,0 @@
-/home/qiutie/programcode/chapter10/class_unregister/class_register_unregister.ko
-/home/qiutie/programcode/chapter10/class_unregister/class_register_unregister.o

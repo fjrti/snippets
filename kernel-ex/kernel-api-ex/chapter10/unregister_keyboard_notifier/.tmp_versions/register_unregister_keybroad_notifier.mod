@@ -1,2 +1,0 @@
-/home/qiutie/programcode/chapter10/unregister_keyboard_notifier/register_unregister_keybroad_notifier.ko
-/home/qiutie/programcode/chapter10/unregister_keyboard_notifier/register_unregister_keybroad_notifier.o

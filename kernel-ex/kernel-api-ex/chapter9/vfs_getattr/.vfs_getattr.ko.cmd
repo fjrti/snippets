@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/vfs_getattr/vfs_getattr.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/vfs_getattr/vfs_getattr.ko /home/qiutie/programcode/chapter9/vfs_getattr/vfs_getattr.o /home/qiutie/programcode/chapter9/vfs_getattr/vfs_getattr.mod.o

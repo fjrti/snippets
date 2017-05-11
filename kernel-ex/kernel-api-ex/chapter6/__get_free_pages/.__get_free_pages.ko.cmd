@@ -1,1 +1,0 @@
-cmd_/tmp/chapter6/__get_free_pages/__get_free_pages.ko := ld -r -m elf_i386  --build-id -o /tmp/chapter6/__get_free_pages/__get_free_pages.ko /tmp/chapter6/__get_free_pages/__get_free_pages.o /tmp/chapter6/__get_free_pages/__get_free_pages.mod.o

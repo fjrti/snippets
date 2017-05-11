@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/__mnt_is_readonly/built-in.o :=  rm -f /home/qiutie/programcode/chapter9/__mnt_is_readonly/built-in.o; ar rcs /home/qiutie/programcode/chapter9/__mnt_is_readonly/built-in.o

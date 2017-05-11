@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/fget/fget.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/fget/fget.ko /home/qiutie/programcode/chapter9/fget/fget.o /home/qiutie/programcode/chapter9/fget/fget.mod.o

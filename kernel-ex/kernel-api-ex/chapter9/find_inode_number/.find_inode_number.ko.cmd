@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter9/find_inode_number/find_inode_number.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter9/find_inode_number/find_inode_number.ko /home/qiutie/programcode/chapter9/find_inode_number/find_inode_number.o /home/qiutie/programcode/chapter9/find_inode_number/find_inode_number.mod.o

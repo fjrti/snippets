@@ -1,1 +1,0 @@
-cmd_/home/qiutie/programcode/chapter4/do_exit/do_exit.ko := ld -r -m elf_i386  --build-id -o /home/qiutie/programcode/chapter4/do_exit/do_exit.ko /home/qiutie/programcode/chapter4/do_exit/do_exit.o /home/qiutie/programcode/chapter4/do_exit/do_exit.mod.o
