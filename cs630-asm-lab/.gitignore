@@ -1,0 +1,8 @@
+boot.S
+boot.bin
+boot.elf
+boot.o
+boot.img
+pmboot.img
+quickload.bin
+.lab*
