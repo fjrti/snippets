@@ -22,7 +22,7 @@ ${CP} -rf ${CWD}/${BUSYBOX}/examples/udhcp/simple.script ./usr/share/udhcpc/defa
 
 cat << EOF > etc/profile
 echo
-echo "Welcome to mini Linux"
+echo "Welcome to fjrti Linux"
 echo
 EOF
 
