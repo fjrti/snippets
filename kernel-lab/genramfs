@@ -55,6 +55,6 @@ chmod 755 etc/init.d/rcS
 find ./ | cpio -o -H newc | gzip > ${CWD}/${1}
 
 cd $CWD
-${RM} $TMPDIR
+${RM} -r $TMPDIR
 
 exit 0
