@@ -7,7 +7,7 @@ all: kernel.img rootfs.img
 
 run: kernel.img rootfs.img
 	qemu-system-x86_64 --enable-kvm \
-		-kernel ./linux-3.10.105/arch/x86_64/boot/bzImage \
+		-kernel ./$(LINUX)/arch/x86_64/boot/bzImage \
 		-initrd rootfs.img \
 		-append "root=/dev/ram rdinit=/sbin/init" \
 		-net nic,model=virtio,macaddr=00:22:33:65:43:21 \
