@@ -1,0 +1,97 @@
+Performance Counters
+The statistics collected by NeoLoad are:
+Total Accesses: Total access count;
+Total kBytes: Total volume delivered in bytes;
+Uptime: Time during which the server was running;
+ReqPerSec: Average number of requests per second;
+BytesPerSec: Average number of bytes delivered per second;
+BytesPerReq: Average number of bytes per request;
+BusyWorkers: Number of child processes actively processing requests;
+IdleWorkers: Number of idle child processes
+
+ab使用的一些问题
+
+ab命令在一般系统上面做测试时候，一般并发不能超过1024个，其实是因为因为系统限制每个进程打开的最大文件数为1024，可以用ulimit -a来查看
+-n 可以指定最大请求数，但是不能超过50000个
+-v n 当n>=2 时，可以显示发送的http请求头，和响应的http头及内容,压力测试时不要这么做
+在做压力测试的时候，一般情况下压力测试客户端接收到的数据量一定会远大于发送出去的数据量
+针对一般并发不能超过1024个问题解决方案
+
+# 默认情况下，一个线程的栈要预留1M的内存空间
+而一个进程中可用的内存空间只有2G，所以理论上一个进程中最多可以开2048个线程
+
+how many QPS and concurrent connections 
+
+
+Apache Bench (ab)
+	单线程工具
+	I'd suggest Apache Bench
+	
+	
+-c 1000 -n 100 错误
+
+	
+Benchmarking 127.0.0.1 (be patient)
+Completed 50000 requests
+Completed 100000 requests
+apr_socket_recv: Connection timed out (110)
+Total of 117543 requests completed
+
+-s timeout：默认30秒
+
+vi /etc/sysctl.conf
+net.ipv4.netfilter.ip_conntrack_max = 655350
+net.ipv4.netfilter.ip_conntrack_tcp_timeout_established = 1200
+#默认超时时间为5天，作为一个主要提供HTTP服务的服务器来讲，完全可以设置得比较短
+sysctl -p # 让刚刚修改过的设置生效
+
+
+ HTTP/1.1，缺省开启的是长连接，而 ab 使用的是 HTTP/1.0，缺省开启的是短链接。
+ 
+ ab -k -c 100 -t 10 http://domain/path
+ 
+ 
+ wrk 相对于 ab 来说最大的优点是它支持多线程
+ 
+ ab -k -c 100 -t 10 http://domain/path
+ 
+ wrk测试短链接的方法
+ wrk -H "Connection: Close" -c 100 -d 10 http://domain/path
+ 
+ 
+ 即便使用了长连接，那么也应该注意端口 TIME_WAIT 问题，视情况可能需要在 sysctl 配置中开启 tcp_tw_recycle 或 tcp_tw_reuse 之类的选项
+ 最好时刻留意哪些资源成为了瓶颈，比如：CPU 是不是跑满了，IO 是不是跑满了，带宽是不是跑满了等等
+ 
+ 
+ 【ab】
+ apr_socket_recv: Connection reset by peer (104)
+ 
+ 
+ 
+HTTP-会话保持-Cookie超时时间默认3600毫秒，最高86400秒
+TCP-会话保持-超时时间默认1000毫秒，最高86400秒。
+
+负载均衡集群底层采用LVS（4层）和Tengine（7层）实现
+
+
+7层的性能：
+1、负载均衡默认会移除TCP连接的timestamp属性，导致Linux协议栈的tw_reuse（TIME_WAIT状态连接复用）无法生效，
+	进而引起TIME_WAIT状态连接堆积并最终导致客户端端口不足。客户端端口不足会导致建立连接失败。
+  规避：
+  a、客户端使用长连接
+  b、配置客户端通过发送RST而非FIN报文断开连接（设置Socket的SO_LINGER属性），避免产生TIME_WAIT状态连接。
+  
+2、后端的accept队列满
+	sysctl -w net.core.somaxconn=<1024>  # 默认128，需要重启吗？
+
+3、由于架构设计的原因，使用7层负载均衡服务时，用户长连接经过Tengine后会转为短连接。这可能会导致后端服务器连接过多，进而影响压测性能。
+	
+4、检查是否存在健康检查的问题
+
+
+# 不建议使用Apache ab进行压测，因为ab在大并发场景下存在问题，
+	会存在3s，6s，9s阶梯式停顿的现象。另外，ab会通过判断content length来确定请求成败，
+	在负载均衡挂载多台后端服务器的时候，返回的content length不一致，会干扰测试结果。  （？？）
+	
+监听关闭健康检查功能 ？？	
+
