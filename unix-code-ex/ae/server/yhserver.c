@@ -127,13 +127,14 @@ int cronJob(aeEventLoop *el, long long id, void *clientData){
 	//return -1;	//no more
 }
 
-int main(){
+int main()
+{
 	aeEventLoop *el;
-	int listenfd, port=PORT, res, connfd;
+	int listenfd, port = PORT, res, connfd;
 	char * cronTips = "yhserver is running ...";
 
 	el = aeCreateEventLoop(MAX_CLIENTS);
-	yhDebug("event loop created...\n");
+	yhDebug("event loop created..., port : %d \n", port);
 	
 	listenfd = anetTcpServer(buffer, port, NULL);
 
