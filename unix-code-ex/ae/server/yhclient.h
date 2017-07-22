@@ -78,7 +78,6 @@ void copyStr(char* dest, char* start, char* end){
 }
 
 void processBuf(char* buf, yhclient* c){
-	
     yhDebug("\nclient info: %s, %d, %d, %d, %d\n", c->cuid, c->cellId[0], c->cellId[1], c->cellId[2], c->cellId[3]);
 }
 
