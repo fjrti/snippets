@@ -74,8 +74,9 @@ void readTcpHandler(aeEventLoop *el, int fd, void *privdata, int mask){
 		yhDebug("Client closed connection\n");
 		freeResource(el, fd, c);
 	}
-
-	processBuf(buffer, c);
+	else {
+		processBuf(buffer, c);
+	}
 
 	res = aeCreateFileEvent(el, fd, AE_WRITABLE, writeTcpHandler, c);
 	if(res != -1){
