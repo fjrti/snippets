@@ -2,3 +2,10 @@ openssl genrsa -out privkey.pem 2048
 openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
 
 cacert.pem 和privkey.pem
+
+sed -i 's/lb_algo sh/lb_algo rr/g' /var/lib/keepalived/conf.d/ecmp_vrouter_to_alb.conf
+systemctl reload keepalived
+
+
+
+
