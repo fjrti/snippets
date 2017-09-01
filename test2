@@ -9,6 +9,20 @@ systemctl reload keepalived
 curl -ksv https://4.28.32.108:31943/v3/auth/tokens -XPOST -T file
 { "auth": { "identity": { "methods": [ "password" ], "password": { "user": { "domain": { "name": "op_service" }, "name": "elb_admin", "password": "Test1234_" } } }, "scope": { "domain": { "name": "op_service" } } } }
 
+curl -sv -XPOST -H "X-Auth-Token: $token" -H "X-Tenant-ID: $tenantId" http://128.8.18.81:8080/v1.0/elbaas/loadbalancers  -d '{"name":"loadbalancer_bypass", "vip_address": "49.4.21.10", "type":"External", "admin_state_up": 1}'
+
+
+curl -sv -X POST -H "X-Auth-Token: $token" -H "X-Tenant-ID: $tenantId" http://128.8.18.81:8080/v1.0/elbaas/listeners  -d '{"loadbalancer_id":"a4ecd9409359478ea4437e53bbcbc21e","port":8002,"protocol":"HTTP","name":"listener_bypass","lb_algorithm":"source", "type": "app"}'
+
+
+curl -sv -X POST -H "X-Auth-Token: $token" -H "X-Tenant-ID: $tenantId" http://128.8.18.81:8080/v1.0/elbaas/routes -d '{"listener_id": "365b08b8ed2743a5a2df4b58e19d0c39","domain":"49.4.21.10","url": "/","lb_algorithm": "source"}'
+
+
+curl -sv -X POST -H "X-Auth-Token: $token" -H "X-Tenant-ID: $tenantId" http://128.8.18.81:8080/v1.0/elbaas/member_groups -d '{"object_id": "5e9b938fd2524f75ad864e5520bf81f2","object_type": "route","name": "member_group_bypaas","type": "produce"}'
+
+
+curl -sv -X POST -H "X-Auth-Token: $token" -H "X-Tenant-ID: $tenantId" http://128.8.18.81:8080/v1.0/elbaas/member_groups/d26eb8305f784b54979edd74ebef79f5/members -d '[{"address":"30.0.21.1","port":8000}]'
+
 
 
 
