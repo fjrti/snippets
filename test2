@@ -6,6 +6,9 @@ cacert.pem 和privkey.pem
 sed -i 's/lb_algo sh/lb_algo rr/g' /var/lib/keepalived/conf.d/ecmp_vrouter_to_alb.conf
 systemctl reload keepalived
 
+curl -ksv https://4.28.32.108:31943/v3/auth/tokens -XPOST -T file
+{ "auth": { "identity": { "methods": [ "password" ], "password": { "user": { "domain": { "name": "op_service" }, "name": "elb_admin", "password": "Test1234_" } } }, "scope": { "domain": { "name": "op_service" } } } }
+
 
 
 
