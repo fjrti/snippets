@@ -3,4 +3,4 @@ all:
 
 clean:
 	rm -f *.[oas] *~ *.rej core httpterm test nohup.out gmon.out
-	rm -f httpterm-$(VERSION).tar.gz httpterm-$(VERSION)
+	rm -f httpterm-$(VERSION)
