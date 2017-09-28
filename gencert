@@ -1,0 +1,230 @@
+#!/usr/bin/env bash
+
+#
+# fjrti@163.com
+#
+
+set -o errexit
+set -o errtrace
+set -o nounset
+set -o pipefail
+
+####################################  cert ###########################################
+function gen_rootca_cert() {
+    out_d=$script_dir/output
+    conf_d=$script_dir/conf
+
+    print_green "[RootCA]prepear"
+    mkdir -p $out_d/{certs,crl,newcerts,private};
+    chmod 700 $out_d/private;
+    touch $out_d/index.txt;
+    echo 1000 > $out_d/serial;
+
+    print_green "[RootCA]gen rsa key pair"
+    openssl genrsa -out $out_d/private/ca.key.pem 1024;
+    chmod 400 $out_d/private/ca.key.pem;
+    
+    print_green "[RootCA]gen rootca cert"
+    cn1=$(read_ini "$conf_d/sub.ini" "RootCA" "countryName")
+    loc=$(read_ini "$conf_d/sub.ini" "RootCA" "province")
+    org=$(read_ini "$conf_d/sub.ini" "RootCA" "organizationName")
+    oun=$(read_ini "$conf_d/sub.ini" "RootCA" "organizationalUnitName")
+    cn2=$(read_ini "$conf_d/sub.ini" "RootCA" "commonName")
+    
+    openssl req -config "$conf_d/root-ca.conf" \
+          -key "$out_d/private/ca.key.pem" \
+          -new -x509 -days 7300 -sha256 -extensions v3_ca -nodes\
+          -subj "/C=$cn1/ST=$loc/O=$org/OU=$oun/CN=$cn2" \
+          -out "$out_d/certs/ca.cert.pem"
+    chmod 444 "$out_d/certs/ca.cert.pem"
+    #openssl x509 -noout -text -in "$out_d/certs/ca.cert.pem"
+}
+
+function gen_interca_cert() {
+    conf_d=$script_dir/conf
+    out_d=$script_dir/output/
+    inter_d=$script_dir/output/intermediate
+
+    print_green "[IntermediateCA]prepear"
+
+    mkdir -p $inter_d/{certs,crl,csr,newcerts,private}
+    chmod 700 $inter_d/private
+    touch $inter_d/index.txt
+    echo 1000 > $inter_d/serial
+    echo 1000 > $inter_d/crlnumber
+    openssl genrsa -out $inter_d/private/intermediate.key.pem 1024;
+    chmod 400 $inter_d/private/intermediate.key.pem;
+
+    print_green "[IntermediateCA]gen IntermediateCA cert"
+    cn1=$(read_ini "$conf_d/sub.ini" "IntermediateCA" "countryName")
+    loc=$(read_ini "$conf_d/sub.ini" "IntermediateCA" "province")
+    org=$(read_ini "$conf_d/sub.ini" "IntermediateCA" "organizationName")
+    oun=$(read_ini "$conf_d/sub.ini" "IntermediateCA" "organizationalUnitName")
+    cn2=$(read_ini "$conf_d/sub.ini" "IntermediateCA" "commonName")
+
+    openssl req -config $conf_d/intermediate-ca.conf -new -nodes -sha256 \
+                -subj "/C=$cn1/ST=$loc/O=$org/OU=$oun/CN=$cn2" \
+                -key $inter_d/private/intermediate.key.pem \
+                -out $inter_d/csr/intermediate.csr.pem
+    
+    #openssl req -noout -text -in $inter_d/csr/intermediate.csr.pem
+    print_green "[IntermediateCA]sign IntermediateCA cert"
+    openssl ca -config $conf_d/root-ca.conf -extensions v3_intermediate_ca \
+               -days 3650 -notext -batch -md sha256 \
+               -in $inter_d/csr/intermediate.csr.pem \
+               -out $inter_d/certs/intermediate.cert.pem
+    chmod 444 $inter_d/certs/intermediate.cert.pem
+
+    print_green "[IntermediateCA]check IntermediateCA cert"
+    #openssl x509 -noout -text -in $inter_d/certs/intermediate.cert.pem
+    openssl verify -CAfile $out_d/certs/ca.cert.pem $inter_d/certs/intermediate.cert.pem
+    cat $inter_d/certs/intermediate.cert.pem \
+              $out_d/certs/ca.cert.pem > $inter_d/certs/ca-chain.cert.pem
+    chmod 444 $inter_d/certs/ca-chain.cert.pem
+}
+
+function gen_server_cert() {
+    conf_d=$script_dir/conf
+    out_d=$script_dir/output/
+    inter_d=$script_dir/output/intermediate
+
+    print_green "[Server]gen rsa key pair"
+    openssl genrsa -out $inter_d/private/server.key.pem 1024
+    chmod 400 $inter_d/private/server.key.pem
+    cn1=$(read_ini "$conf_d/sub.ini" "Server" "countryName")
+    loc=$(read_ini "$conf_d/sub.ini" "Server" "province")
+    org=$(read_ini "$conf_d/sub.ini" "Server" "organizationName")
+    oun=$(read_ini "$conf_d/sub.ini" "Server" "organizationalUnitName")
+    cn2=$(read_ini "$conf_d/sub.ini" "Server" "commonName")
+    print_green "[Server]gen csr "
+    openssl req -config $conf_d/intermediate-ca.conf \
+                -subj "/C=$cn1/ST=$loc/O=$org/OU=$oun/CN=$cn2" \
+                -key $inter_d/private/server.key.pem \
+                -new -sha256 -out $inter_d/csr/server.csr.pem
+    print_green "[Server]sign server cert"
+    openssl ca  -config $conf_d/intermediate-ca.conf \
+                -extensions server_cert -days 375 -notext -batch -md sha256 \
+                -in $inter_d/csr/server.csr.pem \
+                -out $inter_d/certs/server.cert.pem
+    chmod 444 $inter_d/certs/server.cert.pem
+    #openssl x509 -noout -text -in $inter_d/certs/server.cert.pem
+    print_green "[Server]check server csr"
+    openssl verify -CAfile $inter_d/certs/ca-chain.cert.pem \
+              $inter_d/certs/server.cert.pem
+}
+
+##################  helper function  #########################################
+function read_ini() {
+    file=$1;section=$2;item=$3;
+    val=$(awk -F '=' '/\['${section}'\]/{a=1} (a==1 && "'${item}'"==$1){a=0;print $2}' ${file}) 
+    echo ${val}
+}
+
+function trap_err() {
+    trap - ERR
+    set +o errexit
+    set +o pipefail
+
+    if [[ $# -eq 1 && $1 =~ ^[0-9]+$ ]]; then
+        exit "$1"
+    else
+        exit 1
+    fi
+}
+
+function trap_exit() {
+    cd "$orig_cwd"
+    printf '%b' "$(tput sgr0 || true)"
+}
+
+function script_exit() {
+    if [[ $# -eq 1 ]]; then
+        printf '%s\n' "$1"
+        exit 0
+    fi
+
+    if [[ $# -eq 2 && $2 =~ ^[0-9]+$ ]]; then
+        printf '%b\n' "$1"
+        # If we've been provided a non-zero exit code run the error trap
+        if [[ $2 -ne 0 ]]; then
+            trap_err "$2"
+        else
+            exit 0
+        fi
+    fi
+
+    script_exit "Invalid arguments passed to script_exit()!" 2
+}
+
+function script_init() {
+    readonly orig_cwd="$PWD"
+    readonly script_path="${BASH_SOURCE[0]}"
+    readonly script_dir="$(dirname "$script_path")"
+    readonly script_name="$(basename "$script_path")"
+}
+
+function print_green() {
+    printf '%b%s%b\n' "\033[1;32m" "$1" "\033[0m"
+}
+
+function script_usage() {
+    cat << EOF
+Usage:
+     -h|help                    Displays this help
+     root                       Root CA certificate 
+     inter                      Intermediate CA certificate
+     server                     Site server certificate
+     all                        all
+     clean                      clean
+EOF
+}
+
+function parse_params() {
+    local param
+   
+    if [[ $# -ne 1 ]]; then
+        script_usage
+        exit 1
+    fi
+  
+    while [[ $# -gt 0 ]]; do
+        param="$1"
+        shift
+        case $param in
+            -h|help)
+                script_usage
+                exit 0
+                ;;
+            root)
+                gen_rootca_cert
+                ;;
+            inter)
+                gen_interca_cert
+                ;;
+            server)
+                gen_server_cert
+                ;;
+            all)
+                gen_rootca_cert
+                gen_interca_cert
+                gen_server_cert
+                ;;
+            clean)
+                echo "clean ...."
+                rm -rf $script_dir/output/*
+                ;;
+            *)
+                script_exit "Invalid parameter was provided: $param" 2
+                ;;
+            esac
+    done
+}
+
+function main() {
+    trap "trap_err" ERR
+    trap "trap_exit" EXIT
+    script_init
+    parse_params "$@"
+}
+
+main "$@"
