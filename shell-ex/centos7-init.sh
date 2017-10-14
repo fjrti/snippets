@@ -146,5 +146,6 @@ function main(){
 	nw_config
 }
 
-main
+# start
+main "$@"
 
