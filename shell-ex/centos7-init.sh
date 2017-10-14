@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
+#
 # centos 7 init-script
 # fjrti@163.com
+# 
  
-#update system pack
+# update system repo
 yum_update() {
     yum -y install wget
     cd /etc/yum.repos.d/
@@ -15,7 +17,7 @@ yum_update() {
     yum -y install net-tools lrzsz gcc gcc-c++ make cmake libxml2 openssl curl unzip sudo ntp libaio-devel wget vim ncurses-devel autoconf automake zlib  python
 }
 
-#set ntp
+# config ntp
 zone_time(){
     cp  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
     printf 'ZONE="Asia/Shanghai"\nUTC=false\nARC=false' > /etc/sysconfig/clock
@@ -25,7 +27,7 @@ zone_time(){
     source  /etc/sysconfig/i18n
 }
 
-#set ulimit
+# config ulimit
 function ulimit_config(){
 	echo "ulimit -SHn 102400" >> /etc/rc.local
 	cat >> /etc/security/limits.conf <<- EOF
@@ -36,14 +38,14 @@ function ulimit_config(){
 	EOF
 }
  
-#set ssh
+# config sshd
 function sshd_config(){
 	sed -i 's/^GSSAPIAuthentication yes$/GSSAPIAuthentication no/' /etc/ssh/sshd_config
 	sed -i 's/#UseDNS yes/UseDNS no/' /etc/ssh/sshd_config
 	systemctl start crond
 }
   
-#set sysctl
+# config sysctl
 function sysctl_config(){
 	cp /etc/sysctl.conf /et/sysctl.conf.bak
 	cat > /etc/sysctl.conf <<- EOF
@@ -84,18 +86,19 @@ function sysctl_config(){
 	echo "sysctl set OK!!"
 }
   
-#disable selinux
+# disable selinux
 function selinux_config(){
 	sed -i '/SELINUX/s/enforcing/desabled/' /etc/selinux/config
 	setenforce 0
 }
 
-#disable nw
+# disable nw
 function nw_config(){
 	systemctl stop NetworkManager
 	systemctl disable NetworkManager
 }
 
+# config iptables rule
 function gen_ipt_rule(){
 	cat > /etc/sysconfig/iptables <<- EOF
 		# Firewall configuration written by system-config-securitylevel
@@ -119,6 +122,7 @@ function gen_ipt_rule(){
 	EOF
 }
 
+# config iptables
 function iptables_config(){
 	systemctl stop firewalld.servic
 	systemctl disable firewalld.service
@@ -127,6 +131,7 @@ function iptables_config(){
         /sbin/service iptables stop
 }
 
+# main entry
 function main(){
 	if [[ "$(whoami)" != "root" ]]; then
 		echo "please run this script as root ." >&2
