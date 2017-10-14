@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # centos 7 init-script
+# fjrti@163.com
  
 #update system pack
 yum_update() {
