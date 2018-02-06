@@ -1,9 +1,9 @@
 # Usage: make help
 
-MY_CFLAGS = -Wall -Wno-deprecated-declarations -Wno-unused-parameter -Isrc/os/unix -Isrc/auto -Isrc/core -Isrc/os/unix -Isrc/event -Isrc/http -Isrc/http/modules
+MY_CFLAGS = -Wall -Wno-deprecated-declarations -Wno-unused-parameter
 MY_LIBS   =
 CPPFLAGS  = -Wall
-LDFLAGS   = -lpthread -lpcre -lssl -lcrypto -lz -lcrypt
+LDFLAGS   = 
 
 SRCDIRS   = . 
 SRCFILES  = 
