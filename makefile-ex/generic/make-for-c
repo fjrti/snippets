@@ -1,0 +1,102 @@
+# Usage: make help
+
+MY_CFLAGS = -Wall -Wno-deprecated-declarations -Wno-unused-parameter -Isrc/os/unix -Isrc/auto -Isrc/core -Isrc/os/unix -Isrc/event -Isrc/http -Isrc/http/modules
+MY_LIBS   =
+CPPFLAGS  = -Wall
+LDFLAGS   = -lpthread -lpcre -lssl -lcrypto -lz -lcrypt
+
+SRCDIRS   = . 
+SRCFILES  = 
+
+PROGRAM   = demo
+
+## Implicit Section: change the following only when necessary.
+SRCEXTS = .c
+HDREXTS = .h
+CFLAGS  = -g -O2
+CC      = gcc
+RM      = /bin/rm -f
+MKDIR   = /bin/mkdir -p
+
+##==========================================================================
+SHELL   = /bin/sh
+EMPTY   =
+SPACE   = $(EMPTY) $(EMPTY)
+ifeq ($(PROGRAM),)
+  CUR_PATH_NAMES = $(subst /,$(SPACE),$(subst $(SPACE),_,$(CURDIR)))
+  PROGRAM = $(word $(words $(CUR_PATH_NAMES)),$(CUR_PATH_NAMES))
+  ifeq ($(PROGRAM),)
+    PROGRAM = a.out
+  endif
+endif
+
+SOURCES = $(foreach d,$(SRCDIRS),$(wildcard $(addprefix $(d)/*,$(SRCEXTS))))
+SOURCES += $(SRCFILES)
+HEADERS = $(foreach d,$(SRCDIRS),$(wildcard $(addprefix $(d)/*,$(HDREXTS))))
+TEMP    = $(addsuffix .o, $(basename $(SOURCES)))
+OBJS    = $(addprefix _build/, $(TEMP))
+DEPS    = $(OBJS:.o=.d)
+
+DEP_OPT = $(shell if `$(CC) --version | grep "GCC" >/dev/null`; then \
+                  echo "-MM -MP"; else echo "-M"; fi )
+DEPEND      = $(CC) $(DEP_OPT)  $(MY_CFLAGS) $(CFLAGS) $(CPPFLAGS)
+DEPEND.d    = $(subst -g ,,$(DEPEND))
+COMPILE.c   = $(CC) $(MY_CFLAGS) $(CFLAGS) $(CPPFLAGS) -c
+LINK.c      = $(CC) $(MY_CFLAGS) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
+
+.PHONY: all objs clean distclean help show
+
+# Delete the default suffixes
+.SUFFIXES:
+
+all: $(PROGRAM)
+
+_build/%.d:%.c
+	@$(MKDIR) $$(dirname $@)
+	@echo -n $(dir $<) > $@
+	@$(DEPEND.d) $< >> $@
+
+objs:$(OBJS)
+
+_build/%.o:%.c
+	@$(MKDIR) $$(dirname $@)
+	$(COMPILE.c) $< -o $@
+
+$(PROGRAM):$(OBJS)
+	$(LINK.c)   $(OBJS) $(MY_LIBS) -o $@
+
+ifndef NODEP
+ifneq ($(DEPS),)
+  sinclude $(DEPS)
+endif
+endif
+
+clean:
+	$(RM) $(OBJS) $(PROGRAM) $(PROGRAM).exe
+
+distclean: clean
+	$(RM) $(DEPS)
+
+help:
+	@echo 'Usage: make [TARGET]'
+	@echo 'TARGETS:'
+	@echo '  all       (=make) compile and link.'
+	@echo '  NODEP=yes make without generating dependencies.'
+	@echo '  objs      compile only (no linking).'
+	@echo '  clean     clean objects and the executable file.'
+	@echo '  distclean clean objects, the executable and dependencies.'
+	@echo '  show      show variables (for debug use only).'
+	@echo '  help      print this message.'
+	@echo
+
+# Show variables (for debug use only.)
+show:
+	@echo 'PROGRAM     :' $(PROGRAM)
+	@echo 'SRCDIRS     :' $(SRCDIRS)
+	@echo 'HEADERS     :' $(HEADERS)
+	@echo 'SOURCES     :' $(SOURCES)
+	@echo 'OBJS        :' $(OBJS)
+	@echo 'DEPS        :' $(DEPS)
+	@echo 'DEPEND      :' $(DEPEND)
+	@echo 'COMPILE.c   :' $(COMPILE.c)
+	@echo 'link.c      :' $(LINK.c)
