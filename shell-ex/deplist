@@ -1,0 +1,7 @@
+vi test.sh  
+  
+deplist=$( ldd $1 | awk '{if (match($3,"/")){ print $3}}' )  
+cp -L -n $deplist $2   
+-L 表示拷贝文件（如果是软链，会拷贝到最终的文件）。  
+-n 表示不覆盖已有文件。  
+
