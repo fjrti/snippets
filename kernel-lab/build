@@ -6,7 +6,7 @@ BUSYBOX=busybox-1.26.2
 # setting up linux source tree
 if [ ! -d $LINUX ]
 then
-    yum -y install gcc ncurses ncurses-devel bc telnet wget
+	yum -y install gcc ncurses ncurses-devel bc telnet wget glibc-static lbzip2
 	wget https://mirrors.aliyun.com/linux-kernel/v3.x/$LINUX.tar.xz
 	tar xf $LINUX.tar.xz
 fi
